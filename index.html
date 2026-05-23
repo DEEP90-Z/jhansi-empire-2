@@ -519,16 +519,17 @@
       overflow: hidden;
     }
 
-    .hero-slideshow {
+    .hero-bg-container {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: 1;
+      overflow: hidden;
     }
 
-    .hero-slide {
+    .hero-bg-image {
       position: absolute;
       top: 0;
       left: 0;
@@ -537,15 +538,11 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      opacity: 0;
-      transition: opacity 2s ease-in-out;
-      transform: scale(1.08);
+      transform: scale(1);
       z-index: 1;
     }
 
-    .hero-slide.active {
-      opacity: 1;
-      z-index: 2;
+    body.loaded .hero-bg-image {
       animation: kenBurns var(--ken-burns-duration) ease-out forwards;
     }
 
@@ -574,33 +571,66 @@
     }
 
     .hero-content {
-      width: 90%;
-      max-width: var(--container-max-width);
+      width: 94%;
+      max-width: 1650px; /* Expanded max-width to shift the text block further right into the dark sky */
       margin: 0 auto;
       position: relative;
       z-index: 4;
-      text-align: left;
+      display: flex;
+      justify-content: flex-end; /* Align the text block to the right */
       padding-top: 80px;
     }
 
-    .hero-label {
-      font-size: 0.85rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
+    .hero-text-block {
+      max-width: 550px; /* Narrower container to clear the building facade */
+      text-align: left;
+      padding: 1rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        width: 90%;
+        justify-content: center; /* Center on mobile screens */
+      }
+
+      .hero-text-block {
+        padding: 0;
+      }
+    }
+
+    .hero-label-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
       color: var(--gold);
-      font-weight: 600;
-      margin-bottom: 1.25rem;
+      margin-bottom: 0.35rem;
+      line-height: 1.1;
       display: block;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
       opacity: 0;
       transform: translateY(20px);
       transition: all 1s ease 1.2s;
     }
 
+    body.loaded .hero-label-script {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .text-gold {
+      color: var(--gold);
+    }
+
+    .italic {
+      font-style: italic;
+      font-weight: 400;
+    }
+
     .hero-title {
-      font-size: 5.2rem;
+      font-size: 5rem;
       line-height: 1.05;
       color: #ffffff;
       margin-bottom: 1.5rem;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
       opacity: 0;
       transform: translateY(35px);
       transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.4s;
@@ -609,9 +639,10 @@
     .hero-subtitle {
       font-size: 1.2rem;
       max-width: 600px;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.85);
       font-weight: 300;
       margin-bottom: 2.75rem;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
       opacity: 0;
       transform: translateY(25px);
       transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.6s;
@@ -793,8 +824,49 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.25) 100%);
-      z-index: 1;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.65) 100%);
+      z-index: 3;
+    }
+
+    .card-content {
+      position: absolute;
+      bottom: 4rem;
+      left: 4.5rem;
+      z-index: 4;
+      max-width: 600px;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .card-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.65rem;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      line-height: 1.2;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .card-content {
+        bottom: 2.5rem;
+        left: 2rem;
+        right: 2rem;
+      }
+      
+      .card-title {
+        font-size: 1.95rem;
+      }
     }
 
     /* Responsive styling for Stacked Section */
@@ -1021,7 +1093,7 @@
       -webkit-backdrop-filter: blur(8px);
       border: 1px solid rgba(197, 160, 89, 0.12);
       padding: 1.8rem;
-      border-radius: 8px;
+      border-radius: 12px;
       transition: var(--transition-smooth);
     }
 
@@ -1069,6 +1141,10 @@
 
       .collage-badge span {
         font-size: 1.5rem;
+      }
+
+      .highlights-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1121,6 +1197,7 @@
     .amenity-card {
       background-color: var(--bg-dark-card);
       border: 1px solid rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
       padding: 3rem 2rem;
       text-align: center;
       transition: var(--transition-smooth);
@@ -1136,6 +1213,7 @@
       width: 100%;
       height: 100%;
       border: 1px solid var(--gold);
+      border-radius: 16px;
       opacity: 0;
       transition: var(--transition-smooth);
       pointer-events: none;
@@ -1509,6 +1587,16 @@
       transition: height 0.25s ease;
     }
 
+    .video-progress-container::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      bottom: -10px;
+      left: 0;
+      right: 0;
+      z-index: 5;
+    }
+
     .video-progress-container:hover {
       height: 7px;
     }
@@ -1589,6 +1677,16 @@
         height: 22px;
       }
     }
+
+    /* --------------------------------------------------
+       SECTION 5b: CINEMATIC SHOWCASE / GALLERY SECTION
+       -------------------------------------------------- */
+    .gallery-section {
+      padding: var(--section-padding);
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      position: relative;
+      overflow: hidden;
     }
 
     /* --------------------------------------------------
@@ -1612,6 +1710,8 @@
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
       height: 480px;
       border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
     }
 
     .map-container iframe {
@@ -1650,6 +1750,7 @@
       gap: 1.5rem;
       background-color: #fff;
       border: 1px solid rgba(0, 0, 0, 0.03);
+      border-radius: 12px;
       padding: 1.5rem;
       transition: var(--transition-smooth);
     }
@@ -1736,6 +1837,7 @@
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 20px;
       width: 100%;
       max-width: 600px;
       padding: 4.5rem 3.5rem;
@@ -1852,6 +1954,16 @@
     .toast.show {
       transform: translateY(0);
       opacity: 1;
+    }
+
+    @media (max-width: 480px) {
+      .toast {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        left: 1.5rem;
+        padding: 1rem 1.5rem;
+        justify-content: center;
+      }
     }
 
     .toast-icon {
@@ -2114,24 +2226,23 @@
     </ul>
   </div>
 
-  <!-- SECTION 2: Fullscreen Hero Slideshow -->
+  <!-- SECTION 2: Fullscreen Hero -->
   <section id="home" class="hero-section">
-    <div class="hero-slideshow">
-      <div class="hero-slide active" style="background-image: url('./public/hero layers/hero sectiob phto.webp')"></div>
-      <div class="hero-slide" style="background-image: url('./public/hero layers/3 Layers (13).webp')"></div>
-      <div class="hero-slide" style="background-image: url('./public/hero layers/Snapshot_3.png')"></div>
-      <div class="hero-slide" style="background-image: url('./public/hero layers/Snapshot_12.png')"></div>
+    <div class="hero-bg-container">
+      <div class="hero-bg-image" style="background-image: url('./public/hero layers/3 Layers (13).webp')"></div>
     </div>
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <span class="hero-label">Experience A comfortable</span>
-      <h1 class="hero-title">Royal Lifestyle</h1>
-      <p class="hero-subtitle">Luxury residences crafted with elegance, comfort and modern living in the heart of
-        Jhansi.</p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn btn-gold">Schedule A Visit</a>
-        <a href="#gallery" class="btn btn-outline">View Gallery</a>
+      <div class="hero-text-block">
+        <span class="hero-label-script">Experience a comfortable</span>
+        <h1 class="hero-title">Royal <span class="text-gold italic">Lifestyle</span></h1>
+        <p class="hero-subtitle">Luxury residences crafted with elegance, comfort and modern living in the heart of
+          Jhansi.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-gold">Schedule A Visit</a>
+          <a href="#gallery" class="btn btn-outline">View Gallery</a>
+        </div>
       </div>
     </div>
 
@@ -2152,6 +2263,10 @@
           <div class="card-image-bg"
             style="background-image: url('./public/3%20layers/Jhansi%20Empire%203%20layer.webp')"></div>
           <div class="card-overlay"></div>
+          <div class="card-content">
+            <span class="card-label">The Residences</span>
+            <h3 class="card-title">Luxury 3 & 4 BHK Living</h3>
+          </div>
         </div>
 
         <!-- Card 2: Rooftop Swimming Pool -->
@@ -2159,18 +2274,30 @@
           <div class="card-image-bg"
             style="background-image: url('./public/3%20layers/Jhansi%20Empire%203%20layer%20pool%20copy.webp')"></div>
           <div class="card-overlay"></div>
+          <div class="card-content">
+            <span class="card-label">Wellness</span>
+            <h3 class="card-title">Rooftop Infinity Pool</h3>
+          </div>
         </div>
 
         <!-- Card 3: Premium Amenities -->
         <div class="experience-card" id="card-3">
           <div class="card-image-bg" style="background-image: url('./public/3%20layers/3%20Layers%20(14).webp')"></div>
           <div class="card-overlay"></div>
+          <div class="card-content">
+            <span class="card-label">Community</span>
+            <h3 class="card-title">Elite Empire Clubhouse</h3>
+          </div>
         </div>
 
         <!-- Card 4: Prime Location -->
         <div class="experience-card" id="card-4">
           <div class="card-image-bg" style="background-image: url('./public/3%20layers/Night.webp')"></div>
           <div class="card-overlay"></div>
+          <div class="card-content">
+            <span class="card-label">Architecture</span>
+            <h3 class="card-title">Stunning Gated Enclave</h3>
+          </div>
         </div>
       </div>
     </div>
@@ -2439,6 +2566,26 @@
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- Film metadata card -->
+        <div class="video-metadata-card reveal">
+          <div class="meta-item">
+            <span class="meta-label">Duration</span>
+            <span class="meta-value">0:20 Sec</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">Jhansi, UP</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Residences</span>
+            <span class="meta-value">3 & 4 BHK</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Status</span>
+            <span class="meta-value">Under Const.</span>
           </div>
         </div>
       </div>
@@ -2867,8 +3014,8 @@
       updateActiveNavLink();
     }
 
-    // Bind navbar updates and scroll spy to both Lenis scroll and standard scroll events
-    lenis.on('scroll', handleScroll);
+    // Bind navbar updates and scroll spy to standard scroll events
+    // This captures scroll changes from Lenis and native scrolling while preventing double execution
     window.addEventListener('scroll', handleScroll);
 
     // 3. MOBILE MENU TOGGLE
@@ -2918,18 +3065,7 @@
       });
     });
 
-    // 4. HERO AUTOMATIC SLIDESHOW WITH CROSSFADE
-    const slides = document.querySelectorAll('.hero-slide');
-    let currentSlide = 0;
-    const slideInterval = 5500; // time per slide
-
-    function nextSlide() {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }
-
-    setInterval(nextSlide, slideInterval);
+    // 4. HERO AUTOMATIC SLIDESHOW REMOVED (Static Background Image Active)
 
     // 5. INTERSECTION OBSERVER FOR FADE-IN/REVEAL ANIMATIONS
     const revealElements = document.querySelectorAll('.reveal');
@@ -3050,11 +3186,13 @@
     }
 
     function setProgress(e) {
-      const width = progressContainer.clientWidth;
-      const clickX = e.offsetX;
+      const rect = progressContainer.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const width = rect.width;
       const duration = video.duration;
-      if (!isNaN(duration)) {
-        video.currentTime = (clickX / width) * duration;
+      if (!isNaN(duration) && width > 0) {
+        const clampedX = Math.max(0, Math.min(clickX, width));
+        video.currentTime = (clampedX / width) * duration;
       }
     }
 
@@ -3163,11 +3301,17 @@
       e.preventDefault();
 
       // Perform quick HTML5 validation check
-      const name = document.getElementById('form-name').value;
-      const phone = document.getElementById('form-phone').value;
-      const email = document.getElementById('form-email').value;
+      const name = document.getElementById('form-name').value.trim();
+      const phone = document.getElementById('form-phone').value.trim();
+      const email = document.getElementById('form-email').value.trim();
 
       if (name && phone && email) {
+        // Securely personalize toast message (prevent XSS)
+        const toastText = document.getElementById('toast-text');
+        if (toastText) {
+          toastText.textContent = `Thank you, ${name}! Your private visit is scheduled. A royal consultant will reach out shortly.`;
+        }
+
         // Trigger Toast animation
         toast.classList.add('show');
 
