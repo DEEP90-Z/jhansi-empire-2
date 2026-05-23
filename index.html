@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- SEO Meta Tags -->
   <title>Jhansi Empire | Luxury 3 & 4 BHK Residences in Jhansi</title>
-  <meta name="description" content="Jhansi Empire offers premium 3 & 4 BHK luxury residences and gated community living in Jhansi. Experience modern architecture, elite amenities like the Empire Club, and a rooftop swimming pool near Gwalior–Shivpuri Bypass Road.">
+  <meta name="description"
+    content="Jhansi Empire offers premium 3 & 4 BHK luxury residences and gated community living in Jhansi. Experience modern architecture, elite amenities like the Empire Club, and a rooftop swimming pool near Gwalior–Shivpuri Bypass Road.">
   <meta name="robots" content="index, follow">
-  
+
   <!-- OpenGraph Tags for Social Sharing -->
   <meta property="og:title" content="Jhansi Empire | Luxury Residences">
-  <meta property="og:description" content="Experience royal-inspired luxury living at Jhansi Empire. Featuring premium 3 & 4 BHK residences, gated community, rooftop pool, and strategic location.">
+  <meta property="og:description"
+    content="Experience royal-inspired luxury living at Jhansi Empire. Featuring premium 3 & 4 BHK residences, gated community, rooftop pool, and strategic location.">
   <meta property="og:image" content="./public/hero layers/Snapshot_3.png">
   <meta property="og:url" content="https://jhansiempire.in">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="./public/logo/jhansiempirelogo-1.png">
 
   <!-- Google Fonts: Playfair Display (Serif Headings), Inter (Sans-serif Body) & Great Vibes (Emotional Script) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
 
   <!-- Lenis Smooth Scroll -->
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
@@ -42,22 +47,22 @@
       --bg-dark-card: #121212;
       --bg-light: #fcfbf9;
       --bg-light-card: #f5f4f0;
-      
+
       --text-light: #f3f3f3;
       --text-muted-light: #a3a3a3;
       --text-dark: #1a1a1a;
       --text-muted-dark: #666666;
-      
+
       --gold: #c5a059;
       --gold-hover: #b08d4a;
       --gold-light: rgba(197, 160, 89, 0.12);
       --gold-glow: rgba(197, 160, 89, 0.3);
-      
+
       /* Layout & Spacing */
       --container-max-width: 1400px;
       --section-padding: 8.5rem 0;
       --section-padding-mobile: 5.5rem 0;
-      
+
       /* Transitions */
       --transition-smooth: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
       --transition-fast: all 0.25s ease;
@@ -67,7 +72,9 @@
     /* --------------------------------------------------
        BASE STYLE & TYPOGRAPHY
        -------------------------------------------------- */
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -76,7 +83,8 @@
     html {
       scroll-behavior: smooth;
       font-size: 16px;
-      scroll-padding-top: 80px; /* navbar offset */
+      scroll-padding-top: 80px;
+      /* navbar offset */
     }
 
     body {
@@ -89,7 +97,9 @@
       transition: background-color 0.5s ease;
     }
 
-    body:not(.loaded), body.no-scroll, body.intro-animating {
+    body:not(.loaded),
+    body.no-scroll,
+    body.intro-animating {
       overflow: hidden !important;
       height: 100vh;
     }
@@ -99,7 +109,11 @@
       color: var(--text-dark);
     }
 
-    h1, h2, h3, h4, .font-serif {
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-serif {
       font-family: 'Playfair Display', serif;
       font-weight: 500;
       letter-spacing: -0.01em;
@@ -143,7 +157,7 @@
       background-color: var(--gold);
       margin: 2rem 0;
     }
-    
+
     .section-divider.centered {
       margin: 2rem auto;
     }
@@ -219,7 +233,7 @@
       line-height: 1.25;
       color: inherit;
     }
-    
+
     @media (max-width: 768px) {
       .section-title {
         font-size: 2.15rem;
@@ -242,8 +256,8 @@
       align-items: center;
       opacity: 1;
       visibility: visible;
-      transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), 
-                  visibility 1s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1),
+        visibility 1s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     body.loaded #brand-intro {
@@ -285,6 +299,7 @@
         opacity: 0;
         filter: blur(5px);
       }
+
       100% {
         opacity: 1;
         filter: blur(0);
@@ -313,14 +328,17 @@
         transform: translate(-50%, -50%) scale(0.5);
         opacity: 0;
       }
+
       35% {
         transform: translate(-50%, -50%) scale(1.1);
         opacity: 1;
       }
+
       70% {
         transform: translate(-50%, -50%) scale(1.25);
         opacity: 0.95;
       }
+
       100% {
         transform: translate(-50%, -50%) scale(1.2);
         opacity: 0.85;
@@ -372,12 +390,19 @@
       width: 150px;
       height: 48px;
     }
-    
+
     @media (max-width: 1024px) {
-      .navbar-placeholder { width: 130px; height: 42px; }
+      .navbar-placeholder {
+        width: 130px;
+        height: 42px;
+      }
     }
+
     @media (max-width: 768px) {
-      .navbar-placeholder { width: 120px; height: 38px; }
+      .navbar-placeholder {
+        width: 120px;
+        height: 38px;
+      }
     }
 
     .nav-menu {
@@ -396,7 +421,7 @@
       padding: 0.5rem 0;
       position: relative;
     }
-    
+
     /* Elegant underline slide hover effect */
     .nav-item a::after {
       content: '';
@@ -437,8 +462,13 @@
     }
 
     @media (max-width: 1024px) {
-      .nav-menu { display: none; }
-      .menu-toggle { display: flex; }
+      .nav-menu {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
     }
 
     /* Hide nav menu and hamburger toggle during intro */
@@ -446,7 +476,7 @@
     .menu-toggle {
       transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s cubic-bezier(0.25, 1, 0.5, 1);
     }
-    
+
     body.intro-animating .nav-menu,
     body.intro-animating .menu-toggle {
       opacity: 0 !important;
@@ -520,8 +550,13 @@
     }
 
     @keyframes kenBurns {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.08); }
+      0% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(1.08);
+      }
     }
 
     /* Deep charcoal premium gradient overlay */
@@ -531,26 +566,21 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        to bottom,
-        rgba(10, 10, 10, 0.6) 0%,
-        rgba(10, 10, 10, 0.4) 40%,
-        rgba(10, 10, 10, 0.85) 100%
-      );
+      background: linear-gradient(to bottom,
+          rgba(10, 10, 10, 0.6) 0%,
+          rgba(10, 10, 10, 0.4) 40%,
+          rgba(10, 10, 10, 0.85) 100%);
       z-index: 3;
     }
 
     .hero-content {
       width: 90%;
       max-width: var(--container-max-width);
-      margin: 0 0 0 auto;
+      margin: 0 auto;
       position: relative;
       z-index: 4;
-      text-align: right;
+      text-align: left;
       padding-top: 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
     }
 
     .hero-label {
@@ -651,25 +681,46 @@
     }
 
     @keyframes scrollMouse {
-      0% { top: 6px; opacity: 0; }
-      30% { opacity: 1; }
-      100% { top: 22px; opacity: 0; }
+      0% {
+        top: 6px;
+        opacity: 0;
+      }
+
+      30% {
+        opacity: 1;
+      }
+
+      100% {
+        top: 22px;
+        opacity: 0;
+      }
     }
 
     @media (max-width: 1024px) {
-      .hero-title { font-size: 4.2rem; }
+      .hero-title {
+        font-size: 4.2rem;
+      }
     }
 
     @media (max-width: 768px) {
-      .hero-content {
-        align-items: center;
-        text-align: center;
-        margin: 0 auto;
+      .hero-title {
+        font-size: 3.2rem;
       }
-      .hero-title { font-size: 3.2rem; }
-      .hero-subtitle { font-size: 1.05rem; }
-      .hero-buttons { flex-direction: column; gap: 1rem; width: 100%; max-width: 300px; }
-      .hero-buttons .btn { width: 100%; }
+
+      .hero-subtitle {
+        font-size: 1.05rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
     }
 
     /* --------------------------------------------------
@@ -751,6 +802,7 @@
       .experience-container {
         padding: 0 2.5rem;
       }
+
       .cards-wrapper {
         height: 84vh;
       }
@@ -761,9 +813,11 @@
         padding: 80px 0 10px 0;
         height: auto;
       }
+
       .experience-container {
         padding: 0 1.5rem;
       }
+
       .cards-wrapper {
         height: auto;
         border-radius: 0;
@@ -771,11 +825,12 @@
         flex-direction: column;
         gap: 2rem;
       }
+
       .experience-card {
         position: relative;
         height: 60vh;
         border-radius: 24px;
-        box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
       }
     }
 
@@ -784,12 +839,15 @@
         padding: 70px 0 5px 0;
         height: auto;
       }
+
       .experience-container {
         padding: 0 1rem;
       }
+
       .cards-wrapper {
         height: auto;
       }
+
       .experience-card {
         height: 50vh;
         border-radius: 20px;
@@ -903,8 +961,15 @@
     }
 
     @keyframes floatBadge {
-      0%, 100% { transform: translateY(0) rotate(-1.5deg); }
-      50% { transform: translateY(-12px) rotate(1.5deg); }
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-1.5deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(1.5deg);
+      }
     }
 
     /* Typography additions */
@@ -989,18 +1054,47 @@
     }
 
     @media (max-width: 1024px) {
-      .about-grid { gap: 3rem; }
-      .about-image-frame { height: 480px; }
-      .collage-badge { left: -10px; padding: 0.85rem 1.4rem; }
-      .collage-badge span { font-size: 1.5rem; }
+      .about-grid {
+        gap: 3rem;
+      }
+
+      .about-image-frame {
+        height: 480px;
+      }
+
+      .collage-badge {
+        left: -10px;
+        padding: 0.85rem 1.4rem;
+      }
+
+      .collage-badge span {
+        font-size: 1.5rem;
+      }
     }
 
     @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; gap: 3.5rem; }
-      .about-image-container { order: 2; margin-top: 1.5rem; }
-      .collage-badge { left: 10px; bottom: 20px; }
-      .about-story { order: 1; }
-      .highlights-grid { grid-template-columns: 1fr; }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+
+      .about-image-container {
+        order: 2;
+        margin-top: 1.5rem;
+      }
+
+      .collage-badge {
+        left: 10px;
+        bottom: 20px;
+      }
+
+      .about-story {
+        order: 1;
+      }
+
+      .highlights-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* --------------------------------------------------
@@ -1032,12 +1126,15 @@
       transition: var(--transition-smooth);
       position: relative;
     }
-    
+
     /* Golden border shine effect on hover */
     .amenity-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       border: 1px solid var(--gold);
       opacity: 0;
       transition: var(--transition-smooth);
@@ -1064,7 +1161,7 @@
       justify-content: center;
       transition: var(--transition-smooth);
     }
-    
+
     .amenity-icon svg {
       width: 100%;
       height: 100%;
@@ -1089,12 +1186,18 @@
     }
 
     @media (max-width: 1024px) {
-      .amenities-grid { grid-template-columns: repeat(2, 1fr); }
+      .amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 600px) {
-      .amenities-grid { grid-template-columns: 1fr; }
-    }    /* --------------------------------------------------
+      .amenities-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* --------------------------------------------------
        SECTION 5: CINEMATIC SHOWCASE STYLING
        -------------------------------------------------- */
     .video-showcase-wrapper {
@@ -1122,8 +1225,17 @@
     }
 
     @keyframes breathingGlow {
-      0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.98); }
-      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+
+      0%,
+      100% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(0.98);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.08);
+      }
     }
 
     .video-showcase-container {
@@ -1160,7 +1272,7 @@
       gap: 1.5rem;
       z-index: 3;
       position: relative;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
     .meta-item {
@@ -1196,10 +1308,12 @@
         padding: 1.25rem;
         gap: 1rem;
       }
+
       .meta-item {
         flex: 1 1 calc(50% - 1rem);
         border-right: none;
       }
+
       .meta-item:nth-child(odd) {
         border-right: 1px solid rgba(197, 160, 89, 0.1);
       }
@@ -1342,11 +1456,19 @@
     }
 
     @keyframes ripple {
-      0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-      100% { transform: translate(-50%, -50%) scale(1.85); opacity: 0; }
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translate(-50%, -50%) scale(1.85);
+        opacity: 0;
+      }
     }
 
-    .video-left-controls, .video-right-controls {
+    .video-left-controls,
+    .video-right-controls {
       display: flex;
       align-items: center;
       gap: 1.15rem;
@@ -1447,22 +1569,27 @@
         padding: 0.75rem 1.15rem;
         gap: 0.85rem;
       }
+
       .video-time-display {
         display: none;
       }
+
       .video-play-btn-center {
         width: 60px;
         height: 60px;
       }
+
       .video-play-ripple {
         width: 60px;
         height: 60px;
       }
+
       .video-play-btn-center svg {
         width: 22px;
         height: 22px;
       }
-    } }
+    }
+    }
 
     /* --------------------------------------------------
        SECTION 6: LOCATION ADVANTAGE STYLING
@@ -1540,7 +1667,7 @@
       color: var(--gold);
       margin-top: 0.2rem;
     }
-    
+
     .loc-icon svg {
       width: 100%;
       height: 100%;
@@ -1561,14 +1688,29 @@
     }
 
     @media (max-width: 1024px) {
-      .location-grid { gap: 3rem; }
-      .map-container { height: 400px; }
+      .location-grid {
+        gap: 3rem;
+      }
+
+      .map-container {
+        height: 400px;
+      }
     }
 
     @media (max-width: 768px) {
-      .location-grid { grid-template-columns: 1fr; gap: 3.5rem; }
-      .map-container { height: 350px; order: 2; }
-      .location-info { order: 1; }
+      .location-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+
+      .map-container {
+        height: 350px;
+        order: 2;
+      }
+
+      .location-info {
+        order: 1;
+      }
     }
 
     /* --------------------------------------------------
@@ -1577,8 +1719,8 @@
     .contact-section {
       padding: var(--section-padding);
       background-color: var(--bg-dark);
-      background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.95)), 
-                        url('./public/hero layers/Snapshot_18.png');
+      background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.95)),
+        url('./public/hero layers/Snapshot_18.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -1648,8 +1790,8 @@
     }
 
     /* Floating labels animation */
-    .form-input:focus ~ .form-label,
-    .form-input:not(:placeholder-shown) ~ .form-label {
+    .form-input:focus~.form-label,
+    .form-input:not(:placeholder-shown)~.form-label {
       top: -1.2rem;
       font-size: 0.75rem;
       color: var(--gold);
@@ -1673,7 +1815,7 @@
       transition: var(--transition-smooth);
     }
 
-    .form-input:focus ~ .form-line {
+    .form-input:focus~.form-line {
       transform: scaleX(1);
     }
 
@@ -1683,7 +1825,9 @@
     }
 
     @media (max-width: 768px) {
-      .contact-card { padding: 3rem 2rem; }
+      .contact-card {
+        padding: 3rem 2rem;
+      }
     }
 
     /* Success Toast Notification */
@@ -1715,7 +1859,7 @@
       width: 20px;
       height: 20px;
     }
-    
+
     .toast-icon svg {
       width: 100%;
       height: 100%;
@@ -1813,7 +1957,7 @@
       height: 18px;
       margin-top: 0.1rem;
     }
-    
+
     .footer-contact-icon svg {
       width: 100%;
       height: 100%;
@@ -1866,8 +2010,14 @@
     }
 
     @media (max-width: 900px) {
-      .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .footer-title { margin-bottom: 1.2rem; }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .footer-title {
+        margin-bottom: 1.2rem;
+      }
     }
 
     /* --------------------------------------------------
@@ -1914,6 +2064,7 @@
     }
   </style>
 </head>
+
 <body class="intro-animating">
 
   <!-- SECTION 1: OPENING BRAND ANIMATION OVERLAY -->
@@ -1929,7 +2080,7 @@
           <img src="./public/logo/jhansiempirelogo-1.png" alt="Jhansi Empire Gold Logo">
         </div>
       </div>
-      
+
       <!-- Desktop Navigation Menu -->
       <ul class="nav-menu">
         <li class="nav-item active"><a href="#home">Home</a></li>
@@ -1940,7 +2091,7 @@
         <li class="nav-item"><a href="#location">Location</a></li>
         <li class="nav-item"><a href="#contact">Contact</a></li>
       </ul>
-      
+
       <!-- Hamburger Toggle Icon -->
       <div class="menu-toggle" id="menu-toggle">
         <span></span>
@@ -1966,20 +2117,24 @@
   <!-- SECTION 2: Fullscreen Hero Slideshow -->
   <section id="home" class="hero-section">
     <div class="hero-slideshow">
-      <div class="hero-slide active" style="background-image: url('./public/hero layers/3 Layers (13).webp')"></div>
+      <div class="hero-slide active" style="background-image: url('./public/hero layers/hero sectiob phto.webp')"></div>
+      <div class="hero-slide" style="background-image: url('./public/hero layers/3 Layers (13).webp')"></div>
+      <div class="hero-slide" style="background-image: url('./public/hero layers/Snapshot_3.png')"></div>
+      <div class="hero-slide" style="background-image: url('./public/hero layers/Snapshot_12.png')"></div>
     </div>
     <div class="hero-overlay"></div>
-    
+
     <div class="hero-content">
       <span class="hero-label">Experience A comfortable</span>
       <h1 class="hero-title">Royal Lifestyle</h1>
-      <p class="hero-subtitle">Luxury residences crafted with elegance, comfort and modern living in the heart of Jhansi.</p>
+      <p class="hero-subtitle">Luxury residences crafted with elegance, comfort and modern living in the heart of
+        Jhansi.</p>
       <div class="hero-buttons">
         <a href="#contact" class="btn btn-gold">Schedule A Visit</a>
         <a href="#gallery" class="btn btn-outline">View Gallery</a>
       </div>
     </div>
-    
+
     <div class="scroll-indicator" onclick="lenis.scrollTo('#experience')">
       <span>Explore Royal Living</span>
       <div class="mouse">
@@ -1994,13 +2149,15 @@
       <div class="cards-wrapper">
         <!-- Card 1: Luxury Living -->
         <div class="experience-card" id="card-1">
-          <div class="card-image-bg" style="background-image: url('./public/3%20layers/Jhansi%20Empire%203%20layer.webp')"></div>
+          <div class="card-image-bg"
+            style="background-image: url('./public/3%20layers/Jhansi%20Empire%203%20layer.webp')"></div>
           <div class="card-overlay"></div>
         </div>
 
         <!-- Card 2: Rooftop Swimming Pool -->
         <div class="experience-card" id="card-2">
-          <div class="card-image-bg" style="background-image: url('./public/3%20layers/Jhansi%20Empire%203%20layer%20pool%20copy.webp')"></div>
+          <div class="card-image-bg"
+            style="background-image: url('./public/3%20layers/Jhansi%20Empire%203%20layer%20pool%20copy.webp')"></div>
           <div class="card-overlay"></div>
         </div>
 
@@ -2033,43 +2190,50 @@
             <span>Where family comes first</span>
           </div>
         </div>
-        
+
         <!-- Right Column: Poetic Story & Highlights -->
         <div class="about-story reveal">
           <span class="section-label">A Sanctuary of Love</span>
           <div class="emotional-script">Built for Generations</div>
           <h2 class="section-title">For the Best Years of Your Life</h2>
           <div class="section-divider"></div>
-          
+
           <p class="about-story-text">
-            Every cornerstone of Jhansi Empire is built on a simple, heartfelt promise: to be the sanctuary where your family’s most beautiful stories unfold. It’s the warmth of a mother’s embrace in a sun-drenched deck. It's the sound of children's laughter echoing through lush, green tree groves. You’ve worked hard to build a legacy—now let your loved ones live it in a home that celebrates every single moment of togetherness.
+            Every cornerstone of Jhansi Empire is built on a simple, heartfelt promise: to be the sanctuary where your
+            family’s most beautiful stories unfold. It’s the warmth of a mother’s embrace in a sun-drenched deck. It's
+            the sound of children's laughter echoing through lush, green tree groves. You’ve worked hard to build a
+            legacy—now let your loved ones live it in a home that celebrates every single moment of togetherness.
           </p>
-          
+
           <div class="emotional-quote">
             "A legacy is not what you leave for your family... it is the peace, safety, and joy you build with them."
           </div>
-          
+
           <!-- Highlight cards -->
           <div class="highlights-grid">
             <div class="highlight-card">
               <div class="highlight-num">3 & 4 BHK</div>
               <div class="highlight-title">Residences</div>
-              <div class="highlight-desc">Spacious architectural masterpieces featuring double-height entrance lobbies and luxury decks.</div>
+              <div class="highlight-desc">Spacious architectural masterpieces featuring double-height entrance lobbies
+                and luxury decks.</div>
             </div>
             <div class="highlight-card">
               <div class="highlight-num">Gated</div>
               <div class="highlight-title">Community</div>
-              <div class="highlight-desc">Exclusive low-density enclave featuring 75% open spaces, green sensory gardens, and tree groves.</div>
+              <div class="highlight-desc">Exclusive low-density enclave featuring 75% open spaces, green sensory
+                gardens, and tree groves.</div>
             </div>
             <div class="highlight-card">
               <div class="highlight-num">Empire Club</div>
               <div class="highlight-title">Clubhouse</div>
-              <div class="highlight-desc">Four custom-designed clubs tailored for wellness, recreation, and royal social entertainment.</div>
+              <div class="highlight-desc">Four custom-designed clubs tailored for wellness, recreation, and royal social
+                entertainment.</div>
             </div>
             <div class="highlight-card">
               <div class="highlight-num">Rooftop</div>
               <div class="highlight-title">Swimming Pool</div>
-              <div class="highlight-desc">An outstanding infinity pool space designed for wellness and unforgettable relaxing nights.</div>
+              <div class="highlight-desc">An outstanding infinity pool space designed for wellness and unforgettable
+                relaxing nights.</div>
             </div>
           </div>
         </div>
@@ -2085,86 +2249,113 @@
         <h2 class="section-title">Royal Amenities</h2>
         <div class="section-divider centered"></div>
       </div>
-      
+
       <div class="amenities-grid reveal">
         <!-- Amenity 1: Clubhouse -->
         <div class="amenity-card">
           <div class="amenity-icon">
             <!-- Clubhouse SVG -->
-            <svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 7v-5h10v5H7z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 7v-5h10v5H7z" />
+            </svg>
           </div>
           <h3 class="amenity-title">Empire Club</h3>
-          <p class="amenity-desc">Four dedicated clubhouses offering premier wellness, social spaces, and kids activities.</p>
+          <p class="amenity-desc">Four dedicated clubhouses offering premier wellness, social spaces, and kids
+            activities.</p>
         </div>
-        
+
         <!-- Amenity 2: Swimming Pool -->
         <div class="amenity-card">
           <div class="amenity-icon">
             <!-- Pool SVG -->
-            <svg viewBox="0 0 24 24"><path d="M2 19.5c0 .28.22.5.5.5h19c.28 0 .5-.22.5-.5s-.22-.5-.5-.5H2.5c-.28 0-.5.22-.5.5zm19.5-3.5c-.52 0-.98.24-1.28.61-.41-.53-.99-.86-1.63-.86s-1.22.33-1.63.86c-.3-.37-.76-.61-1.28-.61s-.98.24-1.28.61c-.41-.53-.99-.86-1.63-.86s-1.22.33-1.63.86c-.3-.37-.76-.61-1.28-.61s-.98.24-1.28.61c-.41-.53-.99-.86-1.63-.86s-1.22.33-1.63.86c-.3-.37-.76-.61-1.28-.61S2 16.24 2 16.76c0 1.24 1 2.24 2.24 2.24.81 0 1.51-.43 1.9-.11.39-.32 1.09-.11 1.9-.11.81 0 1.51-.43 1.9-.11.39-.32 1.09-.11 1.9-.11.81 0 1.51-.43 1.9-.11.39-.32 1.09-.11 1.9-.11.81 0 1.51-.43 1.9-.11.39-.32 1.09-.11 1.9-.11 1.24 0 2.24-1 2.24-2.24 0-.52-.24-.98-.61-1.28zM19 3v4.06c0 1.07-.93 1.94-2 1.94s-2-.87-2-1.94V3h-2v4.06c0 2.18 1.79 3.94 4 3.94s4-1.76 4-3.94V3h-2z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M2 19.5c0 .28.22.5.5.5h19c.28 0 .5-.22.5-.5s-.22-.5-.5-.5H2.5c-.28 0-.5.22-.5.5zm19.5-3.5c-.52 0-.98.24-1.28.61-.41-.53-.99-.86-1.63-.86s-1.22.33-1.63.86c-.3-.37-.76-.61-1.28-.61s-.98.24-1.28.61c-.41-.53-.99-.86-1.63-.86s-1.22.33-1.63.86c-.3-.37-.76-.61-1.28-.61s-.98.24-1.28.61c-.41-.53-.99-.86-1.63-.86s-1.22.33-1.63.86c-.3-.37-.76-.61-1.28-.61S2 16.24 2 16.76c0 1.24 1 2.24 2.24 2.24.81 0 1.51-.43 1.9-.11.39-.32 1.09-.11 1.9-.11.81 0 1.51-.43 1.9-.11.39-.32 1.09-.11 1.9-.11.81 0 1.51-.43 1.9-.11.39-.32 1.09-.11 1.9-.11.81 0 1.51-.43 1.9-.11.39-.32 1.09-.11 1.9-.11 1.24 0 2.24-1 2.24-2.24 0-.52-.24-.98-.61-1.28zM19 3v4.06c0 1.07-.93 1.94-2 1.94s-2-.87-2-1.94V3h-2v4.06c0 2.18 1.79 3.94 4 3.94s4-1.76 4-3.94V3h-2z" />
+            </svg>
           </div>
           <h3 class="amenity-title">Rooftop Pool</h3>
           <p class="amenity-desc">Stunning rooftop infinity pool featuring private sun-loungers and sunset deck.</p>
         </div>
-        
+
         <!-- Amenity 3: Gym -->
         <div class="amenity-card">
           <div class="amenity-icon">
             <!-- Gym SVG -->
-            <svg viewBox="0 0 24 24"><path d="M20.57 14.86L22 13.43l-2.86-2.86-1.43 1.43 2.86 2.86zM4.3 11.14L2.86 12.57l2.86 2.86 1.43-1.43-2.86-2.86zM8.86 6.3L7.43 4.86l2.86-2.86 1.43 1.43L8.86 6.3zm7.71 8.86l1.43 1.43-2.86 2.86-1.43-1.43 2.86-2.86zM6 19.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5S6 20.33 6 19.5zm10.5-1.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM12 8c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.57 14.86L22 13.43l-2.86-2.86-1.43 1.43 2.86 2.86zM4.3 11.14L2.86 12.57l2.86 2.86 1.43-1.43-2.86-2.86zM8.86 6.3L7.43 4.86l2.86-2.86 1.43 1.43L8.86 6.3zm7.71 8.86l1.43 1.43-2.86 2.86-1.43-1.43 2.86-2.86zM6 19.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5S6 20.33 6 19.5zm10.5-1.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM12 8c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4z" />
+            </svg>
           </div>
           <h3 class="amenity-title">Luxury Gym</h3>
           <p class="amenity-desc">State-of-the-art cardiovascular and strength equipment with expert guidance.</p>
         </div>
-        
+
         <!-- Amenity 4: 24/7 Security -->
         <div class="amenity-card">
           <div class="amenity-icon">
             <!-- Security SVG -->
-            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+            </svg>
           </div>
           <h3 class="amenity-title">24x7 Security</h3>
-          <p class="amenity-desc">Multi-tiered smart security, gated entrance, CCTV surveillance, and verified visitor access.</p>
+          <p class="amenity-desc">Multi-tiered smart security, gated entrance, CCTV surveillance, and verified visitor
+            access.</p>
         </div>
-        
+
         <!-- Amenity 5: Parking -->
         <div class="amenity-card">
           <div class="amenity-icon">
             <!-- Parking SVG -->
-            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-6 10H9v3H7V8h6c1.66 0 3 1.34 3 3s-1.34 3-3 3zm0-4H9v2.5h4c.69 0 1.25-.56 1.25-1.25S13.69 9 13 9z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-6 10H9v3H7V8h6c1.66 0 3 1.34 3 3s-1.34 3-3 3zm0-4H9v2.5h4c.69 0 1.25-.56 1.25-1.25S13.69 9 13 9z" />
+            </svg>
           </div>
           <h3 class="amenity-title">Secure Parking</h3>
           <p class="amenity-desc">Ample covered parking spaces with dedicated electric vehicle charging docks.</p>
         </div>
-        
+
         <!-- Amenity 6: Cycling Track -->
         <div class="amenity-card">
           <div class="amenity-icon">
             <!-- Cycling SVG -->
-            <svg viewBox="0 0 24 24"><path d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5zm7.8-7.4l-1.9-2.6H8.3L6 13.9l1.4 1.4 1.8-1.8 1.2 1.2V22h2v-5.6l-1.8-1.8 1.4-2.2M19 12c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5zm7.8-7.4l-1.9-2.6H8.3L6 13.9l1.4 1.4 1.8-1.8 1.2 1.2V22h2v-5.6l-1.8-1.8 1.4-2.2M19 12c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" />
+            </svg>
           </div>
           <h3 class="amenity-title">Cycling Track</h3>
           <p class="amenity-desc">Scenic jogging and cycling trails weaving through 75% open landscaped gardens.</p>
         </div>
-        
+
         <!-- Amenity 7: Fire Safety -->
         <div class="amenity-card">
           <div class="amenity-icon">
             <!-- Fire Safety SVG -->
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm0-4h-2V7h2v7z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm0-4h-2V7h2v7z" />
+            </svg>
           </div>
           <h3 class="amenity-title">Fire Safety</h3>
-          <p class="amenity-desc">Comprehensive fire safety system with smoke detectors and fire sprinklers throughout.</p>
+          <p class="amenity-desc">Comprehensive fire safety system with smoke detectors and fire sprinklers throughout.
+          </p>
         </div>
-        
+
         <!-- Amenity 8: Vastu Friendly Design -->
         <div class="amenity-card">
           <div class="amenity-icon">
             <!-- Vastu/Compass SVG -->
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-15l-3 5h6l-3-5zm0 14l3-5H9l3 5z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-15l-3 5h6l-3-5zm0 14l3-5H9l3 5z" />
+            </svg>
           </div>
           <h3 class="amenity-title">Vastu-Friendly</h3>
-          <p class="amenity-desc">Residences harmoniously aligned with Vastu principles to bring positive energies and peace.</p>
+          <p class="amenity-desc">Residences harmoniously aligned with Vastu principles to bring positive energies and
+            peace.</p>
         </div>
       </div>
     </div>
@@ -2179,64 +2370,71 @@
         <h2 class="section-title">Experience The Empire</h2>
         <div class="section-divider centered"></div>
       </div>
-      
+
       <!-- Custom Video Showcase Wrapper -->
       <div class="video-showcase-wrapper">
         <!-- Ambient back glow -->
         <div class="video-ambient-glow"></div>
-        
+
         <!-- Video Showcase Player Container -->
         <div class="video-showcase-container reveal" id="video-container">
-          <video class="video-player" id="video-player" loop muted playsinline poster="./public/hero layers/Snapshot_3.png" preload="metadata">
+          <video class="video-player" id="video-player" loop muted playsinline
+            poster="./public/hero layers/Snapshot_3.png" preload="metadata">
             <source src="./public/long%20video/Jhansi%20Empire%2020%20Sec.webm" type="video/webm">
             Your browser does not support the video tag.
           </video>
-          
+
           <!-- Large pulsing play overlay button -->
           <button class="video-play-btn-center" id="video-play-center-btn" aria-label="Play Video">
             <div class="video-play-ripple"></div>
             <svg viewBox="0 0 24 24" id="play-center-icon">
-              <path d="M8 5v14l11-7z"/>
+              <path d="M8 5v14l11-7z" />
             </svg>
           </button>
-  
+
           <!-- Custom controls overlay -->
           <div class="video-controls-overlay">
             <!-- Top dynamic title overlay -->
             <div class="video-title-overlay">
               <span class="video-title-text">Jhansi Empire — Cinematic Tour</span>
             </div>
-  
+
             <!-- Bottom controls bar -->
             <div class="video-controls-bar">
               <!-- Left side controls (Play/Pause, Sound) -->
               <div class="video-left-controls">
                 <button class="video-control-btn" id="video-play-btn" aria-label="Play/Pause">
-                  <svg viewBox="0 0 24 24" id="play-icon"><path d="M8 5v14l11-7z"/></svg>
+                  <svg viewBox="0 0 24 24" id="play-icon">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
                 </button>
                 <button class="video-control-btn" id="video-mute-btn" aria-label="Mute/Unmute">
                   <svg viewBox="0 0 24 24" id="mute-icon">
-                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM19 12c0 2.94-1.66 5.5-4 6.83v2.1c3.48-1.5 6-4.97 6-8.93s-2.52-7.43-6-8.93v2.1c2.34 1.33 4 3.89 4 6.83zM3 9v6h4l5 5V4L7 9H3z"/>
+                    <path
+                      d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM19 12c0 2.94-1.66 5.5-4 6.83v2.1c3.48-1.5 6-4.97 6-8.93s-2.52-7.43-6-8.93v2.1c2.34 1.33 4 3.89 4 6.83zM3 9v6h4l5 5V4L7 9H3z" />
                   </svg>
                 </button>
                 <span class="video-time-display" id="video-time">0:00 / 0:20</span>
               </div>
-  
+
               <!-- Central timeline progress bar -->
               <div class="video-progress-container" id="video-progress-container">
                 <div class="video-progress-bar" id="video-progress-bar"></div>
               </div>
-  
+
               <!-- Right side controls (Cinema Mode, Fullscreen) -->
               <div class="video-right-controls">
-                <button class="video-control-btn" id="video-cinema-btn" title="Toggle Cinema Mode" aria-label="Cinema Mode">
+                <button class="video-control-btn" id="video-cinema-btn" title="Toggle Cinema Mode"
+                  aria-label="Cinema Mode">
                   <svg viewBox="0 0 24 24">
-                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14H6V6h12v12z"/>
+                    <path
+                      d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14H6V6h12v12z" />
                   </svg>
                 </button>
-                <button class="video-control-btn" id="video-fullscreen-btn" title="Toggle Fullscreen" aria-label="Fullscreen">
+                <button class="video-control-btn" id="video-fullscreen-btn" title="Toggle Fullscreen"
+                  aria-label="Fullscreen">
                   <svg viewBox="0 0 24 24">
-                    <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                    <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
                   </svg>
                 </button>
               </div>
@@ -2253,50 +2451,65 @@
       <div class="location-grid">
         <!-- Left: Styled Premium Google Map -->
         <div class="map-container reveal">
-          <iframe src="https://maps.google.com/maps?q=Shivpuri%E2%80%93Gwalior%20Bypass%20Road,%20Jhansi&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+          <iframe
+            src="https://maps.google.com/maps?q=Shivpuri%E2%80%93Gwalior%20Bypass%20Road,%20Jhansi&t=&z=14&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen="" loading="lazy"></iframe>
         </div>
-        
+
         <!-- Right: Connectivity highlights -->
         <div class="location-info reveal">
           <span class="section-label">Location</span>
           <h2 class="section-title">Strategic Connectivity</h2>
           <div class="section-divider"></div>
           <p class="location-desc">
-            Nestled near the Gwalior–Shivpuri Bypass Road, Jhansi Empire offers an elite gated environment with instant transit connectivity to central city landmarks, commercial facilities, and schools.
+            Nestled near the Gwalior–Shivpuri Bypass Road, Jhansi Empire offers an elite gated environment with instant
+            transit connectivity to central city landmarks, commercial facilities, and schools.
           </p>
-          
+
           <div class="location-cards">
             <!-- 1 -->
             <div class="location-card">
               <div class="loc-icon">
                 <!-- Location Pin SVG -->
-                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
               </div>
               <div>
                 <h4 class="loc-card-title">Gwalior–Shivpuri Bypass Road</h4>
-                <p class="loc-card-desc">Excellent transit connectivity right outside the gated threshold, allowing rapid commuting.</p>
+                <p class="loc-card-desc">Excellent transit connectivity right outside the gated threshold, allowing
+                  rapid commuting.</p>
               </div>
             </div>
             <!-- 2 -->
             <div class="location-card">
               <div class="loc-icon">
                 <!-- Train SVG -->
-                <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm4.5-6H6V6h6v5zm6 4.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm0-4.5h-6V6h6v5z"/></svg>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm4.5-6H6V6h6v5zm6 4.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm0-4.5h-6V6h6v5z" />
+                </svg>
               </div>
               <div>
                 <h4 class="loc-card-title">Jhansi Junction Station</h4>
-                <p class="loc-card-desc">Located within a quick 10-15 minute driving distance from the railway station.</p>
+                <p class="loc-card-desc">Located within a quick 10-15 minute driving distance from the railway station.
+                </p>
               </div>
             </div>
             <!-- 3 -->
             <div class="location-card">
               <div class="loc-icon">
                 <!-- School SVG -->
-                <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.89 12.5L12 15.82l6.11-3.32V16c0 1.66-2.73 3-6.11 3-3.37 0-6.11-1.34-6.11-3v-3.5z"/></svg>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.89 12.5L12 15.82l6.11-3.32V16c0 1.66-2.73 3-6.11 3-3.37 0-6.11-1.34-6.11-3v-3.5z" />
+                </svg>
               </div>
               <div>
                 <h4 class="loc-card-title">Educational Institutions</h4>
-                <p class="loc-card-desc">Located near elite primary and high schools, providing convenience for families.</p>
+                <p class="loc-card-desc">Located near elite primary and high schools, providing convenience for
+                  families.</p>
               </div>
             </div>
           </div>
@@ -2314,7 +2527,7 @@
         <h2 class="section-title">Schedule A Private Visit</h2>
         <p class="contact-subtitle">Experience the royal lifestyle firsthand. Book an exclusive guided visit today.</p>
       </div>
-      
+
       <form class="contact-form" id="visit-form">
         <!-- Name -->
         <div class="form-group">
@@ -2322,21 +2535,21 @@
           <label class="form-label">Your Name</label>
           <div class="form-line"></div>
         </div>
-        
+
         <!-- Phone -->
         <div class="form-group">
           <input type="tel" class="form-input" id="form-phone" placeholder=" " required pattern="[6789]\d{9}">
           <label class="form-label">Phone Number</label>
           <div class="form-line"></div>
         </div>
-        
+
         <!-- Email -->
         <div class="form-group">
           <input type="email" class="form-input" id="form-email" placeholder=" " required>
           <label class="form-label">Email Address</label>
           <div class="form-line"></div>
         </div>
-        
+
         <!-- Submit Button -->
         <button type="submit" class="btn btn-gold">Book Site Visit</button>
       </form>
@@ -2346,7 +2559,9 @@
   <!-- TOAST SUCCESS CONFIRMATION -->
   <div class="toast" id="toast">
     <div class="toast-icon">
-      <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      <svg viewBox="0 0 24 24">
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+      </svg>
     </div>
     <div class="toast-text" id="toast-text">Tour scheduled! A royal consultant will reach out to you shortly.</div>
   </div>
@@ -2359,10 +2574,11 @@
         <div class="footer-brand">
           <img src="./public/logo/jhansiempirelogo-1.png" alt="Jhansi Empire Footer Logo" class="footer-logo">
           <p class="footer-tagline">
-            "Jhansi Empire – For Royal Lifestyle". Modern luxury residences crafted with elegance, comfort and royal-inspired architecture.
+            "Jhansi Empire – For Royal Lifestyle". Modern luxury residences crafted with elegance, comfort and
+            royal-inspired architecture.
           </p>
         </div>
-        
+
         <!-- Col 2: Quick Links -->
         <div>
           <h4 class="footer-title">Navigation</h4>
@@ -2375,7 +2591,7 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
-        
+
         <!-- Col 3: Contact Info -->
         <div>
           <h4 class="footer-title">Contact Office</h4>
@@ -2383,42 +2599,60 @@
             <!-- Address -->
             <div class="footer-contact-item">
               <div class="footer-contact-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
               </div>
               <span>Shivpuri–Gwalior Bypass Road,<br>Jhansi, Uttar Pradesh, India</span>
             </div>
-            
+
             <!-- Email -->
             <div class="footer-contact-item">
               <div class="footer-contact-icon">
-                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
               </div>
               <span>jhansiempire@gmail.com</span>
             </div>
-            
+
             <!-- Phone placeholder -->
             <div class="footer-contact-item">
               <div class="footer-contact-icon">
-                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
               </div>
               <span>+91 XXXXX XXXXX (Contact via Email)</span>
             </div>
           </div>
         </div>
       </div>
-      
+
       <!-- Bottom bar -->
       <div class="footer-bottom">
         <p class="copyright">&copy; 2026 Jhansi Empire. All Rights Reserved. Gated Community Residences.</p>
         <div class="social-links">
           <a href="#" class="social-link">
-            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+            </svg>
           </a>
           <a href="#" class="social-link">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+            </svg>
           </a>
           <a href="#" class="social-link">
-            <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />
+            </svg>
           </a>
         </div>
       </div>
@@ -2439,11 +2673,11 @@
         smoothTouch: false
       });
       lenis.stop(); // Stop scroll during brand animation
-      
+
       if (typeof ScrollTrigger !== 'undefined') {
         lenis.on('scroll', ScrollTrigger.update);
       }
-      
+
       if (typeof gsap !== 'undefined') {
         gsap.ticker.add((time) => {
           lenis.raf(time * 1000);
@@ -2453,9 +2687,9 @@
     } else {
       // Fallback scroll behavior if Lenis CDN is unavailable
       lenis = {
-        start: () => {},
-        stop: () => {},
-        on: () => {},
+        start: () => { },
+        stop: () => { },
+        on: () => { },
         scrollTo: (target) => {
           if (target) {
             const el = typeof target === 'string' ? document.querySelector(target) : target;
@@ -2469,7 +2703,7 @@
     function initIntro() {
       const logo = document.getElementById('intro-logo');
       const placeholder = document.querySelector('.navbar-placeholder');
-      
+
       // Fail-safe check if GSAP is unavailable
       if (typeof gsap === 'undefined') {
         document.body.classList.add('loaded');
@@ -2496,7 +2730,7 @@
           requestAnimationFrame(() => {
             if (logo && placeholder) {
               const rect = placeholder.getBoundingClientRect();
-              
+
               // Set initial starting values explicitly in GSAP to prevent visual jumps
               gsap.set(logo, {
                 position: 'fixed',
@@ -2534,7 +2768,7 @@
             }
           });
         });
-        
+
         initStackedCards();
       }, 2300);
     }
@@ -2613,7 +2847,7 @@
     // 2. STICKY NAVBAR SCROLL EVENT
     const navbar = document.getElementById('navbar');
     const introLogo = document.getElementById('intro-logo');
-    
+
     function handleScroll() {
       // Do not apply scrolled class if we are still in the intro animation phase
       if (document.body.classList.contains('intro-animating')) {
@@ -2667,14 +2901,14 @@
 
     // Smooth scroll navigation anchors with Lenis
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+      anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
 
         const target = document.querySelector(targetId);
         if (target) {
           e.preventDefault();
-          
+
           lenis.scrollTo(target, {
             offset: 0,
             duration: 1.2,
@@ -2686,18 +2920,16 @@
 
     // 4. HERO AUTOMATIC SLIDESHOW WITH CROSSFADE
     const slides = document.querySelectorAll('.hero-slide');
-    if (slides.length > 1) {
-      let currentSlide = 0;
-      const slideInterval = 5500; // time per slide
+    let currentSlide = 0;
+    const slideInterval = 5500; // time per slide
 
-      function nextSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-      }
-
-      setInterval(nextSlide, slideInterval);
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
     }
+
+    setInterval(nextSlide, slideInterval);
 
     // 5. INTERSECTION OBSERVER FOR FADE-IN/REVEAL ANIMATIONS
     const revealElements = document.querySelectorAll('.reveal');
@@ -2807,13 +3039,13 @@
       if (isNaN(video.duration)) return;
       const percentage = (video.currentTime / video.duration) * 100;
       progressBar.style.width = `${percentage}%`;
-      
+
       // Update time text
       const currentMin = Math.floor(video.currentTime / 60);
       const currentSec = Math.floor(video.currentTime % 60).toString().padStart(2, '0');
       const durationMin = Math.floor(video.duration / 60) || 0;
       const durationSec = (Math.floor(video.duration % 60) || 0).toString().padStart(2, '0');
-      
+
       timeDisplay.textContent = `${currentMin}:${currentSec} / ${durationMin}:${durationSec}`;
     }
 
@@ -2829,7 +3061,7 @@
     function toggleCinemaMode() {
       videoContainer.classList.toggle('cinema-mode');
       cinemaOverlay.classList.toggle('active');
-      
+
       if (videoContainer.classList.contains('cinema-mode')) {
         document.body.classList.add('no-scroll');
         if (typeof lenis !== 'undefined') lenis.stop();
@@ -2853,7 +3085,7 @@
     function showControls() {
       videoContainer.classList.add('show-controls');
       clearTimeout(controlsTimeout);
-      
+
       if (!video.paused) {
         controlsTimeout = setTimeout(() => {
           videoContainer.classList.remove('show-controls');
@@ -2929,16 +3161,16 @@
 
     visitForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
+
       // Perform quick HTML5 validation check
       const name = document.getElementById('form-name').value;
       const phone = document.getElementById('form-phone').value;
       const email = document.getElementById('form-email').value;
 
-      if(name && phone && email) {
+      if (name && phone && email) {
         // Trigger Toast animation
         toast.classList.add('show');
-        
+
         // Reset the form fields
         visitForm.reset();
 
@@ -2950,4 +3182,5 @@
     });
   </script>
 </body>
+
 </html>
