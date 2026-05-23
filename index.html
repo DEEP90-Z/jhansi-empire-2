@@ -1,0 +1,2953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Jhansi Empire | Luxury 3 & 4 BHK Residences in Jhansi</title>
+  <meta name="description" content="Jhansi Empire offers premium 3 & 4 BHK luxury residences and gated community living in Jhansi. Experience modern architecture, elite amenities like the Empire Club, and a rooftop swimming pool near Gwalior–Shivpuri Bypass Road.">
+  <meta name="robots" content="index, follow">
+  
+  <!-- OpenGraph Tags for Social Sharing -->
+  <meta property="og:title" content="Jhansi Empire | Luxury Residences">
+  <meta property="og:description" content="Experience royal-inspired luxury living at Jhansi Empire. Featuring premium 3 & 4 BHK residences, gated community, rooftop pool, and strategic location.">
+  <meta property="og:image" content="./public/hero layers/Snapshot_3.png">
+  <meta property="og:url" content="https://jhansiempire.in">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./public/logo/jhansiempirelogo-1.png">
+
+  <!-- Google Fonts: Playfair Display (Serif Headings), Inter (Sans-serif Body) & Great Vibes (Emotional Script) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* --------------------------------------------------
+       DESIGN SYSTEM & TOKENS
+       -------------------------------------------------- */
+    :root {
+      /* Colors */
+      --bg-dark: #0a0a0a;
+      --bg-dark-card: #121212;
+      --bg-light: #fcfbf9;
+      --bg-light-card: #f5f4f0;
+      
+      --text-light: #f3f3f3;
+      --text-muted-light: #a3a3a3;
+      --text-dark: #1a1a1a;
+      --text-muted-dark: #666666;
+      
+      --gold: #c5a059;
+      --gold-hover: #b08d4a;
+      --gold-light: rgba(197, 160, 89, 0.12);
+      --gold-glow: rgba(197, 160, 89, 0.3);
+      
+      /* Layout & Spacing */
+      --container-max-width: 1400px;
+      --section-padding: 8.5rem 0;
+      --section-padding-mobile: 5.5rem 0;
+      
+      /* Transitions */
+      --transition-smooth: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      --transition-fast: all 0.25s ease;
+      --ken-burns-duration: 9s;
+    }
+
+    /* --------------------------------------------------
+       BASE STYLE & TYPOGRAPHY
+       -------------------------------------------------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      scroll-padding-top: 80px; /* navbar offset */
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.5s ease;
+    }
+
+    body:not(.loaded), body.no-scroll, body.intro-animating {
+      overflow: hidden !important;
+      height: 100vh;
+    }
+
+    body.loaded {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    h1, h2, h3, h4, .font-serif {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition-fast);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Utility classes */
+    .container {
+      width: 90%;
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 1.1s cubic-bezier(0.25, 1, 0.5, 1), transform 1.1s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .reveal.reveal-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Section divider line */
+    .section-divider {
+      width: 80px;
+      height: 1px;
+      background-color: var(--gold);
+      margin: 2rem 0;
+    }
+    
+    .section-divider.centered {
+      margin: 2rem auto;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.15rem 2.5rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+      border-radius: 0px;
+    }
+
+    .btn-gold {
+      background-color: var(--gold);
+      color: #fff;
+      border: 1px solid var(--gold);
+    }
+
+    .btn-gold:hover {
+      background-color: var(--gold-hover);
+      border-color: var(--gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-outline:hover {
+      background-color: #fff;
+      color: var(--text-dark);
+      border-color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-dark {
+      background-color: transparent;
+      color: var(--text-dark);
+      border: 1px solid var(--text-dark);
+    }
+
+    .btn-outline-dark:hover {
+      background-color: var(--text-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Label stylings */
+    .section-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 2.75rem;
+      line-height: 1.25;
+      color: inherit;
+    }
+    
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2.15rem;
+      }
+    }
+
+    /* --------------------------------------------------
+       SECTION 1: OPENING BRAND ANIMATION
+       -------------------------------------------------- */
+    #brand-intro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: var(--bg-dark);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), 
+                  visibility 1s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    body.loaded #brand-intro {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .brand-logo-animator {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .brand-logo-animator.intro-active {
+      position: fixed;
+      z-index: 10000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1.6);
+      width: 240px;
+      height: 75px;
+      pointer-events: none;
+    }
+
+    .brand-logo-animator img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      animation: logo-fade-in 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+
+    @keyframes logo-fade-in {
+      0% {
+        opacity: 0;
+        filter: blur(5px);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+
+    /* Radial glow behind logo */
+    .logo-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      width: 400px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(197, 160, 89, 0.35) 0%, rgba(197, 160, 89, 0.12) 50%, transparent 80%);
+      filter: blur(25px);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0;
+      animation: pulse-glow-in 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+
+    @keyframes pulse-glow-in {
+      0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+      }
+      35% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 1;
+      }
+      70% {
+        transform: translate(-50%, -50%) scale(1.25);
+        opacity: 0.95;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.85;
+      }
+    }
+
+    body.loaded .logo-glow {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.4);
+      transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* --------------------------------------------------
+       NAVBAR STYLING
+       -------------------------------------------------- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      z-index: 990;
+      display: flex;
+      align-items: center;
+      transition: var(--transition-smooth);
+      background-color: transparent;
+      border-bottom: 1px solid transparent;
+    }
+
+    .navbar.scrolled {
+      height: 80px;
+      background-color: rgba(18, 18, 18, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-container {
+      width: 90%;
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-placeholder {
+      width: 150px;
+      height: 48px;
+    }
+    
+    @media (max-width: 1024px) {
+      .navbar-placeholder { width: 130px; height: 42px; }
+    }
+    @media (max-width: 768px) {
+      .navbar-placeholder { width: 120px; height: 38px; }
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 2.75rem;
+    }
+
+    .nav-item a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.75);
+      padding: 0.5rem 0;
+      position: relative;
+    }
+    
+    /* Elegant underline slide hover effect */
+    .nav-item a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--gold);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .nav-item a:hover::after,
+    .nav-item.active a::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-item a:hover {
+      color: #fff;
+    }
+
+    .nav-item.active a {
+      color: var(--gold);
+    }
+
+    /* Hamburger Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 18px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    @media (max-width: 1024px) {
+      .nav-menu { display: none; }
+      .menu-toggle { display: flex; }
+    }
+
+    /* Hide nav menu and hamburger toggle during intro */
+    .nav-menu,
+    .menu-toggle {
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    
+    body.intro-animating .nav-menu,
+    body.intro-animating .menu-toggle {
+      opacity: 0 !important;
+      pointer-events: none !important;
+      visibility: hidden !important;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background-color: #fff;
+      transition: var(--transition-fast);
+    }
+
+    /* Hamburger Open States */
+    .menu-toggle.open span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+      background-color: #fff !important;
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+      background-color: #fff !important;
+    }
+
+    /* --------------------------------------------------
+       SECTION 2: HERO SLIDESHOW
+       -------------------------------------------------- */
+    .hero-section {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-slideshow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+      transform: scale(1.08);
+      z-index: 1;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      z-index: 2;
+      animation: kenBurns var(--ken-burns-duration) ease-out forwards;
+    }
+
+    @keyframes kenBurns {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+
+    /* Deep charcoal premium gradient overlay */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 10, 0.6) 0%,
+        rgba(10, 10, 10, 0.4) 40%,
+        rgba(10, 10, 10, 0.85) 100%
+      );
+      z-index: 3;
+    }
+
+    .hero-content {
+      width: 90%;
+      max-width: var(--container-max-width);
+      margin: 0 0 0 auto;
+      position: relative;
+      z-index: 4;
+      text-align: right;
+      padding-top: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .hero-label {
+      font-size: 0.85rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: block;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease 1.2s;
+    }
+
+    .hero-title {
+      font-size: 5.2rem;
+      line-height: 1.05;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(35px);
+      transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.4s;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      max-width: 600px;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 300;
+      margin-bottom: 2.75rem;
+      opacity: 0;
+      transform: translateY(25px);
+      transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.6s;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.8s;
+    }
+
+    body.loaded .hero-label,
+    body.loaded .hero-title,
+    body.loaded .hero-subtitle,
+    body.loaded .hero-buttons {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Scroll Down Indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: var(--transition-fast);
+    }
+
+    .scroll-indicator:hover {
+      opacity: 1;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .scroll-indicator .mouse {
+      width: 22px;
+      height: 38px;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .scroll-indicator .wheel {
+      width: 3px;
+      height: 7px;
+      background-color: var(--gold);
+      border-radius: 2px;
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: scrollMouse 2s infinite ease-in-out;
+    }
+
+    @keyframes scrollMouse {
+      0% { top: 6px; opacity: 0; }
+      30% { opacity: 1; }
+      100% { top: 22px; opacity: 0; }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-title { font-size: 4.2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+      }
+      .hero-title { font-size: 3.2rem; }
+      .hero-subtitle { font-size: 1.05rem; }
+      .hero-buttons { flex-direction: column; gap: 1rem; width: 100%; max-width: 300px; }
+      .hero-buttons .btn { width: 100%; }
+    }
+
+    /* --------------------------------------------------
+       SECTION: EXPERIENCE (STACKED SCROLL REVEAL)
+       -------------------------------------------------- */
+    .experience-section {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      background-color: #060606;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 0 10px 0;
+      z-index: 5;
+    }
+
+    .experience-container {
+      width: 100%;
+      height: 100%;
+      max-width: 1550px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding: 0 4rem;
+      justify-content: center;
+    }
+
+    .cards-wrapper {
+      position: relative;
+      width: 100%;
+      height: 88vh;
+      max-height: 900px;
+      margin: 0 auto;
+    }
+
+    .experience-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transform-origin: center top;
+      will-change: transform, opacity;
+      background-color: #0c0c0c;
+    }
+
+    .card-image-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      will-change: transform;
+    }
+
+    .card-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.25) 100%);
+      z-index: 1;
+    }
+
+    /* Responsive styling for Stacked Section */
+    @media (max-width: 1024px) {
+      .experience-container {
+        padding: 0 2.5rem;
+      }
+      .cards-wrapper {
+        height: 84vh;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .experience-section {
+        padding: 80px 0 10px 0;
+        height: auto;
+      }
+      .experience-container {
+        padding: 0 1.5rem;
+      }
+      .cards-wrapper {
+        height: auto;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .experience-card {
+        position: relative;
+        height: 60vh;
+        border-radius: 24px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .experience-section {
+        padding: 70px 0 5px 0;
+        height: auto;
+      }
+      .experience-container {
+        padding: 0 1rem;
+      }
+      .cards-wrapper {
+        height: auto;
+      }
+      .experience-card {
+        height: 50vh;
+        border-radius: 20px;
+      }
+    }
+
+    /* --------------------------------------------------
+       SECTION 3: ABOUT JHANSI EMPIRE
+       -------------------------------------------------- */
+    .about-section {
+      padding: var(--section-padding);
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ambient background glow for About section */
+    .about-section::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 50%;
+      height: 60%;
+      background: radial-gradient(circle, rgba(197, 160, 89, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Centered Image Container with offset frame */
+    .about-image-container {
+      position: relative;
+      max-width: 580px;
+      width: 100%;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    .about-image-container::after {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 100%;
+      height: 100%;
+      border: 1.5px solid var(--gold);
+      border-radius: 20px;
+      pointer-events: none;
+      z-index: -1;
+      transition: var(--transition-smooth);
+    }
+
+    .about-image-container:hover::after {
+      transform: translate(-10px, -10px);
+    }
+
+    .about-image-frame {
+      width: 100%;
+      height: 580px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(197, 160, 89, 0.15);
+      background-color: var(--bg-light-card);
+    }
+
+    .about-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .about-image-container:hover img {
+      transform: scale(1.04);
+    }
+
+    /* Floating handwritten badge */
+    .collage-badge {
+      position: absolute;
+      bottom: 25px;
+      left: -20px;
+      background: rgba(252, 251, 249, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      padding: 1rem 1.6rem;
+      border-radius: 50px;
+      box-shadow: 0 15px 30px rgba(197, 160, 89, 0.15);
+      z-index: 4;
+      animation: floatBadge 6s ease-in-out infinite;
+    }
+
+    .collage-badge span {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.8rem;
+      color: var(--gold);
+      line-height: 1.1;
+      display: block;
+      white-space: nowrap;
+    }
+
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+      50% { transform: translateY(-12px) rotate(1.5deg); }
+    }
+
+    /* Typography additions */
+    .emotional-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.6rem;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
+
+    .emotional-quote {
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--gold);
+      border-left: 2px solid var(--gold);
+      padding-left: 1.5rem;
+      margin: 1.5rem 0 2rem 0;
+    }
+
+    .about-story {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-story-text {
+      font-size: 1.05rem;
+      color: var(--text-muted-dark);
+      margin-bottom: 2rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* Highlights card grid */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    /* Glassmorphic highlight cards */
+    .highlight-card {
+      background: rgba(245, 244, 240, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(197, 160, 89, 0.12);
+      padding: 1.8rem;
+      border-radius: 8px;
+      transition: var(--transition-smooth);
+    }
+
+    .highlight-card:hover {
+      background-color: #fff;
+      border-color: var(--gold);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(197, 160, 89, 0.1);
+    }
+
+    .highlight-num {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .highlight-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .highlight-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted-dark);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1024px) {
+      .about-grid { gap: 3rem; }
+      .about-image-frame { height: 480px; }
+      .collage-badge { left: -10px; padding: 0.85rem 1.4rem; }
+      .collage-badge span { font-size: 1.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+      .about-image-container { order: 2; margin-top: 1.5rem; }
+      .collage-badge { left: 10px; bottom: 20px; }
+      .about-story { order: 1; }
+      .highlights-grid { grid-template-columns: 1fr; }
+    }
+
+    /* --------------------------------------------------
+       SECTION 4: AMENITIES STYLING
+       -------------------------------------------------- */
+    .amenities-section {
+      padding: var(--section-padding);
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      position: relative;
+    }
+
+    .amenities-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .amenity-card {
+      background-color: var(--bg-dark-card);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 3rem 2rem;
+      text-align: center;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+    
+    /* Golden border shine effect on hover */
+    .amenity-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      border: 1px solid var(--gold);
+      opacity: 0;
+      transition: var(--transition-smooth);
+      pointer-events: none;
+    }
+
+    .amenity-card:hover::before {
+      opacity: 1;
+    }
+
+    .amenity-card:hover {
+      transform: translateY(-7px);
+      background-color: rgba(197, 160, 89, 0.02);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .amenity-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1.75rem auto;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+    }
+    
+    .amenity-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+
+    .amenity-card:hover .amenity-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .amenity-title {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+    }
+
+    .amenity-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted-light);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+      .amenities-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .amenities-grid { grid-template-columns: 1fr; }
+    }    /* --------------------------------------------------
+       SECTION 5: CINEMATIC SHOWCASE STYLING
+       -------------------------------------------------- */
+    .video-showcase-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    /* Ambient glow behind video player */
+    .video-ambient-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 95%;
+      height: 95%;
+      background: radial-gradient(circle, rgba(197, 160, 89, 0.15) 0%, transparent 70%);
+      filter: blur(60px);
+      z-index: 1;
+      pointer-events: none;
+      transition: var(--transition-smooth);
+      animation: breathingGlow 8s ease-in-out infinite;
+    }
+
+    @keyframes breathingGlow {
+      0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.98); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+    }
+
+    .video-showcase-container {
+      width: 100%;
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(197, 160, 89, 0.25);
+      background-color: var(--bg-dark-card);
+      aspect-ratio: 16 / 9;
+      transition: var(--transition-smooth);
+      z-index: 3;
+    }
+
+    .video-showcase-container:hover {
+      border-color: var(--gold);
+      box-shadow: 0 35px 80px rgba(197, 160, 89, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* Film metadata card styling */
+    .video-metadata-card {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: 2.5rem auto 0 auto;
+      padding: 1.5rem 2.5rem;
+      background: rgba(18, 18, 18, 0.45);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(197, 160, 89, 0.12);
+      border-radius: 12px;
+      gap: 1.5rem;
+      z-index: 3;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      flex: 1;
+      text-align: center;
+      border-right: 1px solid rgba(197, 160, 89, 0.15);
+    }
+
+    .meta-item:last-child {
+      border-right: none;
+    }
+
+    .meta-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted-light);
+    }
+
+    .meta-value {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 768px) {
+      .video-metadata-card {
+        flex-wrap: wrap;
+        padding: 1.25rem;
+        gap: 1rem;
+      }
+      .meta-item {
+        flex: 1 1 calc(50% - 1rem);
+        border-right: none;
+      }
+      .meta-item:nth-child(odd) {
+        border-right: 1px solid rgba(197, 160, 89, 0.1);
+      }
+    }
+
+    .video-player {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+    /* Custom Video Controls Overlay */
+    .video-controls-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* Title Overlay */
+    .video-title-overlay {
+      padding: 1.8rem 2.2rem;
+      background: linear-gradient(to bottom, rgba(10, 10, 10, 0.75) 0%, transparent 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition-fast);
+      transform: translateY(-10px);
+    }
+
+    .video-title-text {
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Floating glassmorphic island control bar */
+    .video-controls-bar {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translate(-50%, 10px);
+      width: calc(100% - 44px);
+      border-radius: 14px;
+      padding: 1rem 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      background: rgba(10, 10, 10, 0.68);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      transition: var(--transition-smooth);
+      z-index: 10;
+      pointer-events: auto;
+    }
+
+    /* Show controls states */
+    .video-showcase-container:hover .video-controls-overlay,
+    .video-showcase-container.paused .video-controls-overlay,
+    .video-showcase-container.show-controls .video-controls-overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .video-showcase-container:hover .video-title-overlay,
+    .video-showcase-container.paused .video-title-overlay,
+    .video-showcase-container.show-controls .video-title-overlay {
+      transform: translateY(0);
+    }
+
+    .video-showcase-container:hover .video-controls-bar,
+    .video-showcase-container.paused .video-controls-bar,
+    .video-showcase-container.show-controls .video-controls-bar {
+      transform: translate(-50%, 0);
+    }
+
+    /* Central Play Button */
+    .video-play-btn-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(197, 160, 89, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(197, 160, 89, 0.35);
+      transition: var(--transition-smooth);
+      z-index: 4;
+    }
+
+    .video-play-btn-center:hover {
+      background: var(--gold-hover);
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: 0 15px 35px rgba(197, 160, 89, 0.55);
+    }
+
+    .video-play-btn-center svg {
+      width: 30px;
+      height: 30px;
+      fill: currentColor;
+    }
+
+    /* Pulsing Ripple Effect */
+    .video-play-ripple {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      animation: ripple 2.2s infinite ease-out;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    @keyframes ripple {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(1.85); opacity: 0; }
+    }
+
+    .video-left-controls, .video-right-controls {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+    }
+
+    .video-control-btn {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-fast);
+    }
+
+    .video-control-btn:hover {
+      color: var(--gold);
+      transform: scale(1.15);
+    }
+
+    .video-control-btn svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+
+    /* Timeline progress */
+    .video-progress-container {
+      flex-grow: 1;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.18);
+      position: relative;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: height 0.25s ease;
+    }
+
+    .video-progress-container:hover {
+      height: 7px;
+    }
+
+    .video-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold) 0%, #fff 100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 3px;
+    }
+
+    .video-time-display {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.75);
+      font-family: monospace;
+      user-select: none;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    /* Cinema Mode dimming */
+    .cinema-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(5, 5, 5, 0.97);
+      z-index: 9998;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .cinema-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .video-showcase-container.cinema-mode {
+      z-index: 9999;
+      position: relative;
+      max-width: 1200px;
+      border-color: var(--gold);
+      box-shadow: 0 0 65px rgba(197, 160, 89, 0.38);
+    }
+
+    @media (max-width: 768px) {
+      .video-controls-bar {
+        width: calc(100% - 24px);
+        bottom: 12px;
+        padding: 0.75rem 1.15rem;
+        gap: 0.85rem;
+      }
+      .video-time-display {
+        display: none;
+      }
+      .video-play-btn-center {
+        width: 60px;
+        height: 60px;
+      }
+      .video-play-ripple {
+        width: 60px;
+        height: 60px;
+      }
+      .video-play-btn-center svg {
+        width: 22px;
+        height: 22px;
+      }
+    } }
+
+    /* --------------------------------------------------
+       SECTION 6: LOCATION ADVANTAGE STYLING
+       -------------------------------------------------- */
+    .location-section {
+      padding: var(--section-padding);
+      background-color: var(--bg-light-card);
+      color: var(--text-dark);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .map-container {
+      position: relative;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+      height: 480px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      /* Custom luxury dark filter styling for Maps */
+      filter: grayscale(0.9) contrast(1.15) invert(0.04);
+      transition: var(--transition-smooth);
+    }
+
+    .map-container:hover iframe {
+      filter: grayscale(0.2) contrast(1.05);
+    }
+
+    .location-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .location-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted-dark);
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .location-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .location-card {
+      display: flex;
+      gap: 1.5rem;
+      background-color: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      padding: 1.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .location-card:hover {
+      transform: translateX(8px);
+      border-color: rgba(197, 160, 89, 0.3);
+      box-shadow: 0 10px 20px rgba(197, 160, 89, 0.04);
+    }
+
+    .loc-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      color: var(--gold);
+      margin-top: 0.2rem;
+    }
+    
+    .loc-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+
+    .loc-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.35rem;
+    }
+
+    .loc-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted-dark);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1024px) {
+      .location-grid { gap: 3rem; }
+      .map-container { height: 400px; }
+    }
+
+    @media (max-width: 768px) {
+      .location-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+      .map-container { height: 350px; order: 2; }
+      .location-info { order: 1; }
+    }
+
+    /* --------------------------------------------------
+       SECTION 7: CONTACT / SITE VISIT STYLING
+       -------------------------------------------------- */
+    .contact-section {
+      padding: var(--section-padding);
+      background-color: var(--bg-dark);
+      background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.95)), 
+                        url('./public/hero layers/Snapshot_18.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--text-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-card {
+      /* Luxury Glassmorphism */
+      background: rgba(18, 18, 18, 0.7);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      width: 100%;
+      max-width: 600px;
+      padding: 4.5rem 3.5rem;
+      text-align: center;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact-header {
+      margin-bottom: 3rem;
+    }
+
+    .contact-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted-light);
+      font-weight: 300;
+      margin-top: 0.75rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+    }
+
+    .form-group {
+      position: relative;
+      text-align: left;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.75rem 0;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .form-label {
+      position: absolute;
+      top: 0.75rem;
+      left: 0;
+      color: var(--text-muted-light);
+      pointer-events: none;
+      transition: var(--transition-smooth);
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    /* Floating labels animation */
+    .form-input:focus ~ .form-label,
+    .form-input:not(:placeholder-shown) ~ .form-label {
+      top: -1.2rem;
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .form-input:focus {
+      border-bottom-color: var(--gold);
+    }
+
+    /* Input active indicator line */
+    .form-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--gold);
+      transform: scaleX(0);
+      transition: var(--transition-smooth);
+    }
+
+    .form-input:focus ~ .form-line {
+      transform: scaleX(1);
+    }
+
+    .contact-form .btn {
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .contact-card { padding: 3rem 2rem; }
+    }
+
+    /* Success Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 2.5rem;
+      right: 2.5rem;
+      background: var(--bg-dark-card);
+      border-left: 4px solid var(--gold);
+      color: #fff;
+      padding: 1.25rem 2.2rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+      z-index: 10010;
+      transform: translateY(120%);
+      opacity: 0;
+      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-icon {
+      color: var(--gold);
+      width: 20px;
+      height: 20px;
+    }
+    
+    .toast-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+
+    .toast-text {
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    /* --------------------------------------------------
+       SECTION 8: FOOTER STYLING
+       -------------------------------------------------- */
+    .footer {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 5.5rem 0 2.5rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.5fr;
+      gap: 4rem;
+      margin-bottom: 4.5rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      width: 130px;
+      height: auto;
+    }
+
+    .footer-tagline {
+      font-size: 0.9rem;
+      color: var(--text-muted-light);
+      max-width: 320px;
+      line-height: 1.7;
+    }
+
+    .footer-title {
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 1.8rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-muted-light);
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+      transform: translateX(4px);
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted-light);
+    }
+
+    .footer-contact-item span {
+      line-height: 1.5;
+    }
+
+    .footer-contact-icon {
+      color: var(--gold);
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      margin-top: 0.1rem;
+    }
+    
+    .footer-contact-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .copyright {
+      font-size: 0.78rem;
+      color: var(--text-muted-light);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted-light);
+      transition: var(--transition-smooth);
+    }
+
+    .social-link svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .social-link:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      background-color: rgba(197, 160, 89, 0.05);
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-title { margin-bottom: 1.2rem; }
+    }
+
+    /* --------------------------------------------------
+       MOBILE NAVIGATION DRAWER OVERLAY
+       -------------------------------------------------- */
+    .mobile-nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--bg-dark);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(100%);
+      transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .mobile-nav-overlay.open {
+      transform: translateX(0);
+    }
+
+    .mobile-nav-menu {
+      list-style: none;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+    }
+
+    .mobile-nav-item a {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: rgba(255, 255, 255, 0.6);
+      display: block;
+      transition: var(--transition-fast);
+    }
+
+    .mobile-nav-item a:hover {
+      color: var(--gold);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="intro-animating">
+
+  <!-- SECTION 1: OPENING BRAND ANIMATION OVERLAY -->
+  <div id="brand-intro"></div>
+
+  <!-- FLOATING NAVIGATION BAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Logo slots directly into its placeholder -->
+      <div class="navbar-placeholder">
+        <div class="brand-logo-animator intro-active" id="intro-logo">
+          <div class="logo-glow"></div>
+          <img src="./public/logo/jhansiempirelogo-1.png" alt="Jhansi Empire Gold Logo">
+        </div>
+      </div>
+      
+      <!-- Desktop Navigation Menu -->
+      <ul class="nav-menu">
+        <li class="nav-item active"><a href="#home">Home</a></li>
+        <li class="nav-item"><a href="#experience">Experience</a></li>
+        <li class="nav-item"><a href="#about">About</a></li>
+        <li class="nav-item"><a href="#amenities">Amenities</a></li>
+        <li class="nav-item"><a href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a href="#location">Location</a></li>
+        <li class="nav-item"><a href="#contact">Contact</a></li>
+      </ul>
+      
+      <!-- Hamburger Toggle Icon -->
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-nav-overlay" id="mobile-nav">
+    <ul class="mobile-nav-menu">
+      <li class="mobile-nav-item"><a href="#home" onclick="toggleMenu()">Home</a></li>
+      <li class="mobile-nav-item"><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+      <li class="mobile-nav-item"><a href="#about" onclick="toggleMenu()">About</a></li>
+      <li class="mobile-nav-item"><a href="#amenities" onclick="toggleMenu()">Amenities</a></li>
+      <li class="mobile-nav-item"><a href="#gallery" onclick="toggleMenu()">Gallery</a></li>
+      <li class="mobile-nav-item"><a href="#location" onclick="toggleMenu()">Location</a></li>
+      <li class="mobile-nav-item"><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- SECTION 2: Fullscreen Hero Slideshow -->
+  <section id="home" class="hero-section">
+    <div class="hero-slideshow">
+      <div class="hero-slide active" style="background-image: url('./public/hero layers/3 Layers (13).webp')"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+      <span class="hero-label">Experience A comfortable</span>
+      <h1 class="hero-title">Royal Lifestyle</h1>
+      <p class="hero-subtitle">Luxury residences crafted with elegance, comfort and modern living in the heart of Jhansi.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-gold">Schedule A Visit</a>
+        <a href="#gallery" class="btn btn-outline">View Gallery</a>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator" onclick="lenis.scrollTo('#experience')">
+      <span>Explore Royal Living</span>
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: EXPERIENCE (STACKED SCROLL REVEAL) -->
+  <section id="experience" class="experience-section">
+    <div class="experience-container">
+      <div class="cards-wrapper">
+        <!-- Card 1: Luxury Living -->
+        <div class="experience-card" id="card-1">
+          <div class="card-image-bg" style="background-image: url('./public/3%20layers/Jhansi%20Empire%203%20layer.webp')"></div>
+          <div class="card-overlay"></div>
+        </div>
+
+        <!-- Card 2: Rooftop Swimming Pool -->
+        <div class="experience-card" id="card-2">
+          <div class="card-image-bg" style="background-image: url('./public/3%20layers/Jhansi%20Empire%203%20layer%20pool%20copy.webp')"></div>
+          <div class="card-overlay"></div>
+        </div>
+
+        <!-- Card 3: Premium Amenities -->
+        <div class="experience-card" id="card-3">
+          <div class="card-image-bg" style="background-image: url('./public/3%20layers/3%20Layers%20(14).webp')"></div>
+          <div class="card-overlay"></div>
+        </div>
+
+        <!-- Card 4: Prime Location -->
+        <div class="experience-card" id="card-4">
+          <div class="card-image-bg" style="background-image: url('./public/3%20layers/Night.webp')"></div>
+          <div class="card-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: ABOUT JHANSI EMPIRE -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Left Column: Center Framed Creative Image -->
+        <div class="about-image-container reveal">
+          <div class="about-image-frame">
+            <img src="./public/about/about.webp" alt="Jhansi Empire Home Heart">
+          </div>
+          <!-- Floating Handwritten Badge -->
+          <div class="collage-badge">
+            <span>Where family comes first</span>
+          </div>
+        </div>
+        
+        <!-- Right Column: Poetic Story & Highlights -->
+        <div class="about-story reveal">
+          <span class="section-label">A Sanctuary of Love</span>
+          <div class="emotional-script">Built for Generations</div>
+          <h2 class="section-title">For the Best Years of Your Life</h2>
+          <div class="section-divider"></div>
+          
+          <p class="about-story-text">
+            Every cornerstone of Jhansi Empire is built on a simple, heartfelt promise: to be the sanctuary where your family’s most beautiful stories unfold. It’s the warmth of a mother’s embrace in a sun-drenched deck. It's the sound of children's laughter echoing through lush, green tree groves. You’ve worked hard to build a legacy—now let your loved ones live it in a home that celebrates every single moment of togetherness.
+          </p>
+          
+          <div class="emotional-quote">
+            "A legacy is not what you leave for your family... it is the peace, safety, and joy you build with them."
+          </div>
+          
+          <!-- Highlight cards -->
+          <div class="highlights-grid">
+            <div class="highlight-card">
+              <div class="highlight-num">3 & 4 BHK</div>
+              <div class="highlight-title">Residences</div>
+              <div class="highlight-desc">Spacious architectural masterpieces featuring double-height entrance lobbies and luxury decks.</div>
+            </div>
+            <div class="highlight-card">
+              <div class="highlight-num">Gated</div>
+              <div class="highlight-title">Community</div>
+              <div class="highlight-desc">Exclusive low-density enclave featuring 75% open spaces, green sensory gardens, and tree groves.</div>
+            </div>
+            <div class="highlight-card">
+              <div class="highlight-num">Empire Club</div>
+              <div class="highlight-title">Clubhouse</div>
+              <div class="highlight-desc">Four custom-designed clubs tailored for wellness, recreation, and royal social entertainment.</div>
+            </div>
+            <div class="highlight-card">
+              <div class="highlight-num">Rooftop</div>
+              <div class="highlight-title">Swimming Pool</div>
+              <div class="highlight-desc">An outstanding infinity pool space designed for wellness and unforgettable relaxing nights.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: AMENITIES -->
+  <section id="amenities" class="amenities-section">
+    <div class="container">
+      <div class="amenities-header reveal">
+        <span class="section-label">Conveniences</span>
+        <h2 class="section-title">Royal Amenities</h2>
+        <div class="section-divider centered"></div>
+      </div>
+      
+      <div class="amenities-grid reveal">
+        <!-- Amenity 1: Clubhouse -->
+        <div class="amenity-card">
+          <div class="amenity-icon">
+            <!-- Clubhouse SVG -->
+            <svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 7v-5h10v5H7z"/></svg>
+          </div>
+          <h3 class="amenity-title">Empire Club</h3>
+          <p class="amenity-desc">Four dedicated clubhouses offering premier wellness, social spaces, and kids activities.</p>
+        </div>
+        
+        <!-- Amenity 2: Swimming Pool -->
+        <div class="amenity-card">
+          <div class="amenity-icon">
+            <!-- Pool SVG -->
+            <svg viewBox="0 0 24 24"><path d="M2 19.5c0 .28.22.5.5.5h19c.28 0 .5-.22.5-.5s-.22-.5-.5-.5H2.5c-.28 0-.5.22-.5.5zm19.5-3.5c-.52 0-.98.24-1.28.61-.41-.53-.99-.86-1.63-.86s-1.22.33-1.63.86c-.3-.37-.76-.61-1.28-.61s-.98.24-1.28.61c-.41-.53-.99-.86-1.63-.86s-1.22.33-1.63.86c-.3-.37-.76-.61-1.28-.61s-.98.24-1.28.61c-.41-.53-.99-.86-1.63-.86s-1.22.33-1.63.86c-.3-.37-.76-.61-1.28-.61S2 16.24 2 16.76c0 1.24 1 2.24 2.24 2.24.81 0 1.51-.43 1.9-.11.39-.32 1.09-.11 1.9-.11.81 0 1.51-.43 1.9-.11.39-.32 1.09-.11 1.9-.11.81 0 1.51-.43 1.9-.11.39-.32 1.09-.11 1.9-.11.81 0 1.51-.43 1.9-.11.39-.32 1.09-.11 1.9-.11 1.24 0 2.24-1 2.24-2.24 0-.52-.24-.98-.61-1.28zM19 3v4.06c0 1.07-.93 1.94-2 1.94s-2-.87-2-1.94V3h-2v4.06c0 2.18 1.79 3.94 4 3.94s4-1.76 4-3.94V3h-2z"/></svg>
+          </div>
+          <h3 class="amenity-title">Rooftop Pool</h3>
+          <p class="amenity-desc">Stunning rooftop infinity pool featuring private sun-loungers and sunset deck.</p>
+        </div>
+        
+        <!-- Amenity 3: Gym -->
+        <div class="amenity-card">
+          <div class="amenity-icon">
+            <!-- Gym SVG -->
+            <svg viewBox="0 0 24 24"><path d="M20.57 14.86L22 13.43l-2.86-2.86-1.43 1.43 2.86 2.86zM4.3 11.14L2.86 12.57l2.86 2.86 1.43-1.43-2.86-2.86zM8.86 6.3L7.43 4.86l2.86-2.86 1.43 1.43L8.86 6.3zm7.71 8.86l1.43 1.43-2.86 2.86-1.43-1.43 2.86-2.86zM6 19.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5S6 20.33 6 19.5zm10.5-1.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM12 8c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4z"/></svg>
+          </div>
+          <h3 class="amenity-title">Luxury Gym</h3>
+          <p class="amenity-desc">State-of-the-art cardiovascular and strength equipment with expert guidance.</p>
+        </div>
+        
+        <!-- Amenity 4: 24/7 Security -->
+        <div class="amenity-card">
+          <div class="amenity-icon">
+            <!-- Security SVG -->
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          </div>
+          <h3 class="amenity-title">24x7 Security</h3>
+          <p class="amenity-desc">Multi-tiered smart security, gated entrance, CCTV surveillance, and verified visitor access.</p>
+        </div>
+        
+        <!-- Amenity 5: Parking -->
+        <div class="amenity-card">
+          <div class="amenity-icon">
+            <!-- Parking SVG -->
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-6 10H9v3H7V8h6c1.66 0 3 1.34 3 3s-1.34 3-3 3zm0-4H9v2.5h4c.69 0 1.25-.56 1.25-1.25S13.69 9 13 9z"/></svg>
+          </div>
+          <h3 class="amenity-title">Secure Parking</h3>
+          <p class="amenity-desc">Ample covered parking spaces with dedicated electric vehicle charging docks.</p>
+        </div>
+        
+        <!-- Amenity 6: Cycling Track -->
+        <div class="amenity-card">
+          <div class="amenity-icon">
+            <!-- Cycling SVG -->
+            <svg viewBox="0 0 24 24"><path d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5zm7.8-7.4l-1.9-2.6H8.3L6 13.9l1.4 1.4 1.8-1.8 1.2 1.2V22h2v-5.6l-1.8-1.8 1.4-2.2M19 12c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+          </div>
+          <h3 class="amenity-title">Cycling Track</h3>
+          <p class="amenity-desc">Scenic jogging and cycling trails weaving through 75% open landscaped gardens.</p>
+        </div>
+        
+        <!-- Amenity 7: Fire Safety -->
+        <div class="amenity-card">
+          <div class="amenity-icon">
+            <!-- Fire Safety SVG -->
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm0-4h-2V7h2v7z"/></svg>
+          </div>
+          <h3 class="amenity-title">Fire Safety</h3>
+          <p class="amenity-desc">Comprehensive fire safety system with smoke detectors and fire sprinklers throughout.</p>
+        </div>
+        
+        <!-- Amenity 8: Vastu Friendly Design -->
+        <div class="amenity-card">
+          <div class="amenity-icon">
+            <!-- Vastu/Compass SVG -->
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-15l-3 5h6l-3-5zm0 14l3-5H9l3 5z"/></svg>
+          </div>
+          <h3 class="amenity-title">Vastu-Friendly</h3>
+          <p class="amenity-desc">Residences harmoniously aligned with Vastu principles to bring positive energies and peace.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: CINEMATIC SHOWCASE -->
+  <section id="gallery" class="gallery-section">
+    <div class="cinema-overlay" id="cinema-overlay"></div>
+    <div class="container">
+      <div class="gallery-header reveal">
+        <span class="section-label">Cinematic Tour</span>
+        <h2 class="section-title">Experience The Empire</h2>
+        <div class="section-divider centered"></div>
+      </div>
+      
+      <!-- Custom Video Showcase Wrapper -->
+      <div class="video-showcase-wrapper">
+        <!-- Ambient back glow -->
+        <div class="video-ambient-glow"></div>
+        
+        <!-- Video Showcase Player Container -->
+        <div class="video-showcase-container reveal" id="video-container">
+          <video class="video-player" id="video-player" loop muted playsinline poster="./public/hero layers/Snapshot_3.png" preload="metadata">
+            <source src="./public/long%20video/Jhansi%20Empire%2020%20Sec.webm" type="video/webm">
+            Your browser does not support the video tag.
+          </video>
+          
+          <!-- Large pulsing play overlay button -->
+          <button class="video-play-btn-center" id="video-play-center-btn" aria-label="Play Video">
+            <div class="video-play-ripple"></div>
+            <svg viewBox="0 0 24 24" id="play-center-icon">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </button>
+  
+          <!-- Custom controls overlay -->
+          <div class="video-controls-overlay">
+            <!-- Top dynamic title overlay -->
+            <div class="video-title-overlay">
+              <span class="video-title-text">Jhansi Empire — Cinematic Tour</span>
+            </div>
+  
+            <!-- Bottom controls bar -->
+            <div class="video-controls-bar">
+              <!-- Left side controls (Play/Pause, Sound) -->
+              <div class="video-left-controls">
+                <button class="video-control-btn" id="video-play-btn" aria-label="Play/Pause">
+                  <svg viewBox="0 0 24 24" id="play-icon"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <button class="video-control-btn" id="video-mute-btn" aria-label="Mute/Unmute">
+                  <svg viewBox="0 0 24 24" id="mute-icon">
+                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM19 12c0 2.94-1.66 5.5-4 6.83v2.1c3.48-1.5 6-4.97 6-8.93s-2.52-7.43-6-8.93v2.1c2.34 1.33 4 3.89 4 6.83zM3 9v6h4l5 5V4L7 9H3z"/>
+                  </svg>
+                </button>
+                <span class="video-time-display" id="video-time">0:00 / 0:20</span>
+              </div>
+  
+              <!-- Central timeline progress bar -->
+              <div class="video-progress-container" id="video-progress-container">
+                <div class="video-progress-bar" id="video-progress-bar"></div>
+              </div>
+  
+              <!-- Right side controls (Cinema Mode, Fullscreen) -->
+              <div class="video-right-controls">
+                <button class="video-control-btn" id="video-cinema-btn" title="Toggle Cinema Mode" aria-label="Cinema Mode">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14H6V6h12v12z"/>
+                  </svg>
+                </button>
+                <button class="video-control-btn" id="video-fullscreen-btn" title="Toggle Fullscreen" aria-label="Fullscreen">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: LOCATION ADVANTAGE -->
+  <section id="location" class="location-section">
+    <div class="container">
+      <div class="location-grid">
+        <!-- Left: Styled Premium Google Map -->
+        <div class="map-container reveal">
+          <iframe src="https://maps.google.com/maps?q=Shivpuri%E2%80%93Gwalior%20Bypass%20Road,%20Jhansi&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        
+        <!-- Right: Connectivity highlights -->
+        <div class="location-info reveal">
+          <span class="section-label">Location</span>
+          <h2 class="section-title">Strategic Connectivity</h2>
+          <div class="section-divider"></div>
+          <p class="location-desc">
+            Nestled near the Gwalior–Shivpuri Bypass Road, Jhansi Empire offers an elite gated environment with instant transit connectivity to central city landmarks, commercial facilities, and schools.
+          </p>
+          
+          <div class="location-cards">
+            <!-- 1 -->
+            <div class="location-card">
+              <div class="loc-icon">
+                <!-- Location Pin SVG -->
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <div>
+                <h4 class="loc-card-title">Gwalior–Shivpuri Bypass Road</h4>
+                <p class="loc-card-desc">Excellent transit connectivity right outside the gated threshold, allowing rapid commuting.</p>
+              </div>
+            </div>
+            <!-- 2 -->
+            <div class="location-card">
+              <div class="loc-icon">
+                <!-- Train SVG -->
+                <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm4.5-6H6V6h6v5zm6 4.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm0-4.5h-6V6h6v5z"/></svg>
+              </div>
+              <div>
+                <h4 class="loc-card-title">Jhansi Junction Station</h4>
+                <p class="loc-card-desc">Located within a quick 10-15 minute driving distance from the railway station.</p>
+              </div>
+            </div>
+            <!-- 3 -->
+            <div class="location-card">
+              <div class="loc-icon">
+                <!-- School SVG -->
+                <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.89 12.5L12 15.82l6.11-3.32V16c0 1.66-2.73 3-6.11 3-3.37 0-6.11-1.34-6.11-3v-3.5z"/></svg>
+              </div>
+              <div>
+                <h4 class="loc-card-title">Educational Institutions</h4>
+                <p class="loc-card-desc">Located near elite primary and high schools, providing convenience for families.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: CONTACT / SITE VISIT -->
+  <section id="contact" class="contact-section">
+    <!-- Glassmorphism Card -->
+    <div class="contact-card reveal">
+      <div class="contact-header">
+        <span class="section-label">Private Tour</span>
+        <h2 class="section-title">Schedule A Private Visit</h2>
+        <p class="contact-subtitle">Experience the royal lifestyle firsthand. Book an exclusive guided visit today.</p>
+      </div>
+      
+      <form class="contact-form" id="visit-form">
+        <!-- Name -->
+        <div class="form-group">
+          <input type="text" class="form-input" id="form-name" placeholder=" " required>
+          <label class="form-label">Your Name</label>
+          <div class="form-line"></div>
+        </div>
+        
+        <!-- Phone -->
+        <div class="form-group">
+          <input type="tel" class="form-input" id="form-phone" placeholder=" " required pattern="[6789]\d{9}">
+          <label class="form-label">Phone Number</label>
+          <div class="form-line"></div>
+        </div>
+        
+        <!-- Email -->
+        <div class="form-group">
+          <input type="email" class="form-input" id="form-email" placeholder=" " required>
+          <label class="form-label">Email Address</label>
+          <div class="form-line"></div>
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-gold">Book Site Visit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- TOAST SUCCESS CONFIRMATION -->
+  <div class="toast" id="toast">
+    <div class="toast-icon">
+      <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    </div>
+    <div class="toast-text" id="toast-text">Tour scheduled! A royal consultant will reach out to you shortly.</div>
+  </div>
+
+  <!-- SECTION 8: FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Logo -->
+        <div class="footer-brand">
+          <img src="./public/logo/jhansiempirelogo-1.png" alt="Jhansi Empire Footer Logo" class="footer-logo">
+          <p class="footer-tagline">
+            "Jhansi Empire – For Royal Lifestyle". Modern luxury residences crafted with elegance, comfort and royal-inspired architecture.
+          </p>
+        </div>
+        
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Col 3: Contact Info -->
+        <div>
+          <h4 class="footer-title">Contact Office</h4>
+          <div class="footer-contact">
+            <!-- Address -->
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <span>Shivpuri–Gwalior Bypass Road,<br>Jhansi, Uttar Pradesh, India</span>
+            </div>
+            
+            <!-- Email -->
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </div>
+              <span>jhansiempire@gmail.com</span>
+            </div>
+            
+            <!-- Phone placeholder -->
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              </div>
+              <span>+91 XXXXX XXXXX (Contact via Email)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 Jhansi Empire. All Rights Reserved. Gated Community Residences.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- --------------------------------------------------
+       JAVASCRIPT INTERACTIONS
+       -------------------------------------------------- -->
+  <script>
+    // Initialize Lenis Smooth Scroll with safety fallback
+    let lenis;
+    if (typeof Lenis !== 'undefined') {
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        smoothTouch: false
+      });
+      lenis.stop(); // Stop scroll during brand animation
+      
+      if (typeof ScrollTrigger !== 'undefined') {
+        lenis.on('scroll', ScrollTrigger.update);
+      }
+      
+      if (typeof gsap !== 'undefined') {
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+      }
+    } else {
+      // Fallback scroll behavior if Lenis CDN is unavailable
+      lenis = {
+        start: () => {},
+        stop: () => {},
+        on: () => {},
+        scrollTo: (target) => {
+          if (target) {
+            const el = typeof target === 'string' ? document.querySelector(target) : target;
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      };
+    }
+
+    // 1. BRAND INTRO ANIMATION & INITIAL LOAD
+    function initIntro() {
+      const logo = document.getElementById('intro-logo');
+      const placeholder = document.querySelector('.navbar-placeholder');
+      
+      // Fail-safe check if GSAP is unavailable
+      if (typeof gsap === 'undefined') {
+        document.body.classList.add('loaded');
+        document.body.classList.remove('intro-animating');
+        if (logo && placeholder) {
+          placeholder.appendChild(logo);
+          logo.classList.remove('intro-active');
+        }
+        return;
+      }
+
+      // Move logo to body so it renders on top of the black overlay (escapes navbar stacking context)
+      if (logo) {
+        document.body.appendChild(logo);
+      }
+
+      // Allow 2.3 seconds for gold shimmer sweep, then move logo and reveal content
+      setTimeout(() => {
+        document.body.classList.add('loaded');
+        lenis.start(); // Start scroll after loaded
+
+        // Wait for browser layout to stabilize (scrollbar changes) before measuring coordinates
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            if (logo && placeholder) {
+              const rect = placeholder.getBoundingClientRect();
+              
+              // Set initial starting values explicitly in GSAP to prevent visual jumps
+              gsap.set(logo, {
+                position: 'fixed',
+                left: '50%',
+                top: '50%',
+                xPercent: -50,
+                yPercent: -50,
+                scale: 1.6,
+                width: 240,
+                height: 75,
+                zIndex: 10000
+              });
+
+              // Animate logo to the navbar placeholder coordinates
+              gsap.to(logo, {
+                left: rect.left + rect.width / 2,
+                top: rect.top + rect.height / 2,
+                width: rect.width,
+                height: rect.height,
+                scale: 1,
+                xPercent: -50,
+                yPercent: -50,
+                duration: 1.5,
+                ease: 'power3.inOut',
+                onComplete: () => {
+                  // Put the logo back inside the navbar placeholder for static rendering
+                  placeholder.appendChild(logo);
+                  logo.classList.remove('intro-active');
+                  gsap.set(logo, { clearProps: 'all' });
+                  document.body.classList.remove('intro-animating');
+                }
+              });
+            } else {
+              document.body.classList.remove('intro-animating');
+            }
+          });
+        });
+        
+        initStackedCards();
+      }, 2300);
+    }
+
+    // Run loader immediately if DOM is ready, avoiding race condition delays
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', initIntro);
+    } else {
+      initIntro();
+    }
+
+    // GSAP STACKED SCROLL REVEAL
+    function initStackedCards() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const cards = gsap.utils.toArray('.experience-card');
+      if (cards.length === 0) return;
+
+      ScrollTrigger.config({ ignoreMobileResize: true });
+
+      let mm = gsap.matchMedia();
+
+      mm.add("(min-width: 769px)", () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#experience',
+            start: 'top top',
+            end: `+=${cards.length * 100}%`,
+            pin: true,
+            scrub: 1,
+            anticipatePin: 1,
+            invalidateOnRefresh: true
+          }
+        });
+
+        cards.forEach((card, idx) => {
+          if (idx === 0) {
+            tl.to(card.querySelector('.card-image-bg'), { scale: 1.08, ease: 'none' }, 0);
+            return;
+          }
+
+          const startTime = idx;
+          tl.fromTo(card, { yPercent: 100 }, { yPercent: 0, ease: 'none' }, startTime);
+          tl.fromTo(card.querySelector('.card-image-bg'), { scale: 1.15 }, { scale: 1.0, ease: 'none' }, startTime);
+
+          for (let j = 0; j < idx; j++) {
+            const prevCard = cards[j];
+            const distance = idx - j;
+            tl.to(prevCard, {
+              scale: 1 - distance * 0.03,
+              yPercent: -distance * 3.5,
+              opacity: Math.max(0.4, 1 - distance * 0.15),
+              ease: 'none'
+            }, startTime);
+          }
+        });
+      });
+
+      mm.add("(max-width: 768px)", () => {
+        cards.forEach((card, idx) => {
+          gsap.from(card, {
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8
+          });
+        });
+      });
+
+      ScrollTrigger.refresh();
+    }
+
+    // 2. STICKY NAVBAR SCROLL EVENT
+    const navbar = document.getElementById('navbar');
+    const introLogo = document.getElementById('intro-logo');
+    
+    function handleScroll() {
+      // Do not apply scrolled class if we are still in the intro animation phase
+      if (document.body.classList.contains('intro-animating')) {
+        navbar.classList.remove('scrolled');
+        if (introLogo) introLogo.classList.remove('scrolled');
+        return;
+      }
+
+      const scrollPos = window.scrollY || lenis.scroll;
+      if (scrollPos > 80) {
+        navbar.classList.add('scrolled');
+        if (introLogo) introLogo.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+        if (introLogo) introLogo.classList.remove('scrolled');
+      }
+      updateActiveNavLink();
+    }
+
+    // Bind navbar updates and scroll spy to both Lenis scroll and standard scroll events
+    lenis.on('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
+
+    // 3. MOBILE MENU TOGGLE
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    function toggleMenu() {
+      menuToggle.classList.toggle('open');
+      mobileNav.classList.toggle('open');
+      if (mobileNav.classList.contains('open')) {
+        document.body.classList.add('no-scroll');
+        lenis.stop();
+      } else {
+        document.body.classList.remove('no-scroll');
+        lenis.start();
+      }
+    }
+
+    // Close menu when clicking navigation drawer item (handles layout scroll)
+    document.querySelectorAll('.mobile-nav-item a').forEach(item => {
+      item.addEventListener('click', () => {
+        menuToggle.classList.remove('open');
+        mobileNav.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+        lenis.start();
+      });
+    });
+
+    // Smooth scroll navigation anchors with Lenis
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          
+          lenis.scrollTo(target, {
+            offset: 0,
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+          });
+        }
+      });
+    });
+
+    // 4. HERO AUTOMATIC SLIDESHOW WITH CROSSFADE
+    const slides = document.querySelectorAll('.hero-slide');
+    if (slides.length > 1) {
+      let currentSlide = 0;
+      const slideInterval = 5500; // time per slide
+
+      function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }
+
+      setInterval(nextSlide, slideInterval);
+    }
+
+    // 5. INTERSECTION OBSERVER FOR FADE-IN/REVEAL ANIMATIONS
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-active');
+          // Once animated, stop observing this element
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px" // triggers slightly before entering screen
+    });
+
+    revealElements.forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // 6. SCROLL SPY FOR ACTIVE NAVBAR LINKS
+    const navItems = document.querySelectorAll('.nav-item');
+    const sections = document.querySelectorAll('section');
+
+    function updateActiveNavLink() {
+      let currentSectionId = '';
+      const scrollPos = window.scrollY + 120; // offset
+
+      const experienceSection = document.getElementById('experience');
+      const aboutSection = document.getElementById('about');
+
+      // Calculate experience top (checking parent element created by ScrollTrigger pinning wrapper)
+      const expTop = experienceSection ? (experienceSection.parentElement.classList.contains('pin-spacer') ? experienceSection.parentElement.offsetTop : experienceSection.offsetTop) : 0;
+      const aboutTop = aboutSection ? aboutSection.offsetTop : 0;
+
+      if (scrollPos >= expTop && scrollPos < aboutTop) {
+        currentSectionId = 'experience';
+      } else {
+        sections.forEach(section => {
+          if (section.getAttribute('id') === 'experience') return;
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            currentSectionId = section.getAttribute('id');
+          }
+        });
+      }
+
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        const link = item.querySelector('a');
+        if (link.getAttribute('href') === `#${currentSectionId}`) {
+          item.classList.add('active');
+        }
+      });
+    }
+
+    // 7. CINEMATIC VIDEO PLAYER CONTROLLER
+    const videoContainer = document.getElementById('video-container');
+    const video = document.getElementById('video-player');
+    const playBtn = document.getElementById('video-play-btn');
+    const playCenterBtn = document.getElementById('video-play-center-btn');
+    const playIcon = document.getElementById('play-icon');
+    const muteBtn = document.getElementById('video-mute-btn');
+    const muteIcon = document.getElementById('mute-icon');
+    const progressContainer = document.getElementById('video-progress-container');
+    const progressBar = document.getElementById('video-progress-bar');
+    const timeDisplay = document.getElementById('video-time');
+    const cinemaBtn = document.getElementById('video-cinema-btn');
+    const cinemaOverlay = document.getElementById('cinema-overlay');
+    const fullscreenBtn = document.getElementById('video-fullscreen-btn');
+
+    // SVGs for state changes
+    const PLAY_SVG = '<path d="M8 5v14l11-7z"/>';
+    const PAUSE_SVG = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+    const MUTED_SVG = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM19 12c0 2.94-1.66 5.5-4 6.83v2.1c3.48-1.5 6-4.97 6-8.93s-2.52-7.43-6-8.93v2.1c2.34 1.33 4 3.89 4 6.83zM3 9v6h4l5 5V4L7 9H3z"/>';
+    const UNMUTED_SVG = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>';
+
+    let hasUserInteractedWithAudio = false;
+    let controlsTimeout;
+
+    function togglePlay() {
+      if (video.paused) {
+        // Smart Audio Unmute: If muted by autoplay, unmute on first manual play interaction
+        if (video.muted && !hasUserInteractedWithAudio) {
+          video.muted = false;
+          muteIcon.innerHTML = UNMUTED_SVG;
+          hasUserInteractedWithAudio = true;
+        }
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
+
+    function toggleMute() {
+      video.muted = !video.muted;
+      hasUserInteractedWithAudio = true;
+      if (video.muted) {
+        muteIcon.innerHTML = MUTED_SVG;
+      } else {
+        muteIcon.innerHTML = UNMUTED_SVG;
+      }
+    }
+
+    function updateProgress() {
+      if (isNaN(video.duration)) return;
+      const percentage = (video.currentTime / video.duration) * 100;
+      progressBar.style.width = `${percentage}%`;
+      
+      // Update time text
+      const currentMin = Math.floor(video.currentTime / 60);
+      const currentSec = Math.floor(video.currentTime % 60).toString().padStart(2, '0');
+      const durationMin = Math.floor(video.duration / 60) || 0;
+      const durationSec = (Math.floor(video.duration % 60) || 0).toString().padStart(2, '0');
+      
+      timeDisplay.textContent = `${currentMin}:${currentSec} / ${durationMin}:${durationSec}`;
+    }
+
+    function setProgress(e) {
+      const width = progressContainer.clientWidth;
+      const clickX = e.offsetX;
+      const duration = video.duration;
+      if (!isNaN(duration)) {
+        video.currentTime = (clickX / width) * duration;
+      }
+    }
+
+    function toggleCinemaMode() {
+      videoContainer.classList.toggle('cinema-mode');
+      cinemaOverlay.classList.toggle('active');
+      
+      if (videoContainer.classList.contains('cinema-mode')) {
+        document.body.classList.add('no-scroll');
+        if (typeof lenis !== 'undefined') lenis.stop();
+      } else {
+        document.body.classList.remove('no-scroll');
+        if (typeof lenis !== 'undefined') lenis.start();
+      }
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        videoContainer.requestFullscreen().catch(err => {
+          console.error(`Error attempting to enable fullscreen: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // Smart auto-hiding controls function
+    function showControls() {
+      videoContainer.classList.add('show-controls');
+      clearTimeout(controlsTimeout);
+      
+      if (!video.paused) {
+        controlsTimeout = setTimeout(() => {
+          videoContainer.classList.remove('show-controls');
+        }, 3000);
+      }
+    }
+
+    // Video Controls Interaction Listeners
+    videoContainer.addEventListener('mousemove', showControls);
+    videoContainer.addEventListener('mouseenter', showControls);
+    videoContainer.addEventListener('mouseleave', () => {
+      clearTimeout(controlsTimeout);
+      if (!video.paused) {
+        videoContainer.classList.remove('show-controls');
+      }
+    });
+
+    video.addEventListener('play', () => {
+      videoContainer.classList.remove('paused');
+      playIcon.innerHTML = PAUSE_SVG;
+      playCenterBtn.style.opacity = '0';
+      playCenterBtn.style.pointerEvents = 'none';
+      showControls();
+    });
+
+    video.addEventListener('pause', () => {
+      videoContainer.classList.add('paused');
+      playIcon.innerHTML = PLAY_SVG;
+      playCenterBtn.style.opacity = '1';
+      playCenterBtn.style.pointerEvents = 'auto';
+      clearTimeout(controlsTimeout);
+      videoContainer.classList.add('show-controls');
+    });
+
+    // Event Listeners
+    playBtn.addEventListener('click', togglePlay);
+    playCenterBtn.addEventListener('click', togglePlay);
+    video.addEventListener('click', togglePlay);
+    muteBtn.addEventListener('click', toggleMute);
+    video.addEventListener('timeupdate', updateProgress);
+    progressContainer.addEventListener('click', setProgress);
+    cinemaBtn.addEventListener('click', toggleCinemaMode);
+    cinemaOverlay.addEventListener('click', toggleCinemaMode);
+    fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+    // Escape exits cinema mode
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && videoContainer.classList.contains('cinema-mode')) {
+        toggleCinemaMode();
+      }
+    });
+
+    // Intersection Observer for autoplay when visible
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!videoContainer.classList.contains('paused')) {
+            video.play().catch(err => console.log('Autoplay blocked: ', err));
+          }
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.2 });
+
+    if (video) {
+      videoObserver.observe(video);
+    }
+
+    // 8. CONTACT FORM INTERCEPT & TOAST RESPONSE
+    const visitForm = document.getElementById('visit-form');
+    const toast = document.getElementById('toast');
+
+    visitForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Perform quick HTML5 validation check
+      const name = document.getElementById('form-name').value;
+      const phone = document.getElementById('form-phone').value;
+      const email = document.getElementById('form-email').value;
+
+      if(name && phone && email) {
+        // Trigger Toast animation
+        toast.classList.add('show');
+        
+        // Reset the form fields
+        visitForm.reset();
+
+        // Remove Toast after 5.5 seconds
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 5500);
+      }
+    });
+  </script>
+</body>
+</html>
