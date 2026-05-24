@@ -785,13 +785,14 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 80px 0 10px 0;
+      padding: 0;
       z-index: 5;
     }
 
     .experience-container {
       width: 100%;
-      height: 100%;
+      height: calc(100vh - 220px); /* Leaves exactly 110px margins top and bottom for all viewports */
+      max-height: 800px;
       max-width: 1550px;
       margin: 0 auto;
       display: flex;
@@ -804,8 +805,7 @@
     .cards-wrapper {
       position: relative;
       width: 100%;
-      height: 88vh;
-      max-height: 900px;
+      height: 100%;
       margin: 0 auto;
     }
 
@@ -842,8 +842,13 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: rgba(0, 0, 0, 0.25);
       z-index: 3;
+      transition: background 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .experience-card:hover .card-overlay {
+      background: rgba(0, 0, 0, 0);
     }
 
     .card-content {
@@ -891,21 +896,24 @@
     @media (max-width: 1024px) {
       .experience-container {
         padding: 0 2.5rem;
+        height: calc(100vh - 180px); /* Leaves exactly 90px margins */
       }
 
       .cards-wrapper {
-        height: 84vh;
+        height: 100%;
       }
     }
 
     @media (max-width: 768px) {
       .experience-section {
-        padding: 80px 0 10px 0;
+        padding: 80px 0 80px 0;
         height: auto;
       }
 
       .experience-container {
         padding: 0 1.5rem;
+        height: auto;
+        max-height: none;
       }
 
       .cards-wrapper {
@@ -926,12 +934,14 @@
 
     @media (max-width: 480px) {
       .experience-section {
-        padding: 70px 0 5px 0;
+        padding: 70px 0 50px 0;
         height: auto;
       }
 
       .experience-container {
         padding: 0 1rem;
+        height: auto;
+        max-height: none;
       }
 
       .cards-wrapper {
@@ -2257,7 +2267,7 @@
 
     <div class="hero-content">
       <div class="hero-text-block">
-        <span class="hero-label-script">Experience a comfortable</span>
+        <span class="hero-label-script">Experience a Refined</span>
         <h1 class="hero-title">Royal <span class="text-gold italic">Lifestyle</span></h1>
         <p class="hero-subtitle">Luxury residences crafted with elegance, comfort and modern living in the heart of
           Jhansi.</p>
@@ -2285,10 +2295,6 @@
           <div class="card-image-bg"
             style="background-image: url('./public/3%20layers/Jhansi%20Empire%203%20layer.webp')"></div>
           <div class="card-overlay"></div>
-          <div class="card-content">
-            <span class="card-label">The Residences</span>
-            <h3 class="card-title">Luxury 3 & 4 BHK Living</h3>
-          </div>
         </div>
 
         <!-- Card 2: Rooftop Swimming Pool -->
@@ -2296,30 +2302,18 @@
           <div class="card-image-bg"
             style="background-image: url('./public/3%20layers/Jhansi%20Empire%203%20layer%20pool%20copy.webp')"></div>
           <div class="card-overlay"></div>
-          <div class="card-content">
-            <span class="card-label">Wellness</span>
-            <h3 class="card-title">Rooftop Infinity Pool</h3>
-          </div>
         </div>
 
         <!-- Card 3: Premium Amenities -->
         <div class="experience-card" id="card-3">
           <div class="card-image-bg" style="background-image: url('./public/3%20layers/3%20Layers%20(14).webp')"></div>
           <div class="card-overlay"></div>
-          <div class="card-content">
-            <span class="card-label">Community</span>
-            <h3 class="card-title">Elite Empire Clubhouse</h3>
-          </div>
         </div>
 
         <!-- Card 4: Prime Location -->
         <div class="experience-card" id="card-4">
           <div class="card-image-bg" style="background-image: url('./public/3%20layers/Night.webp')"></div>
           <div class="card-overlay"></div>
-          <div class="card-content">
-            <span class="card-label">Architecture</span>
-            <h3 class="card-title">Stunning Gated Enclave</h3>
-          </div>
         </div>
       </div>
     </div>
@@ -2349,7 +2343,7 @@
 
           <p class="about-story-text">
             Every cornerstone of Jhansi Empire is built on a simple, heartfelt promise: to be the sanctuary where your
-            family’s most beautiful stories unfold. It’s the warmth of a mother’s embrace in a sun-drenched deck. It's
+            family’s most beautiful stories unfold. It’s the warmth of a mother’s embrace on a sun-drenched deck. It's
             the sound of children's laughter echoing through lush, green tree groves. You’ve worked hard to build a
             legacy—now let your loved ones live it in a home that celebrates every single moment of togetherness.
           </p>
@@ -2375,7 +2369,7 @@
             <div class="highlight-card">
               <div class="highlight-num">Empire Club</div>
               <div class="highlight-title">Clubhouse</div>
-              <div class="highlight-desc">Four custom-designed clubs tailored for wellness, recreation, and royal social
+              <div class="highlight-desc">Four custom-designed clubhouses tailored for wellness, recreation, and royal social
                 entertainment.</div>
             </div>
             <div class="highlight-card">
@@ -2673,7 +2667,7 @@
               </div>
               <div>
                 <h4 class="loc-card-title">Educational Institutions</h4>
-                <p class="loc-card-desc">Located near elite primary and high schools, providing convenience for
+                <p class="loc-card-desc">Close to elite primary and secondary schools, providing seamless educational access for
                   families.</p>
               </div>
             </div>
@@ -2831,6 +2825,12 @@
        JAVASCRIPT INTERACTIONS
        -------------------------------------------------- -->
   <script>
+    // Reset scroll position to top on page load/refresh
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
     // Initialize Lenis Smooth Scroll with safety fallback
     let lenis;
     if (typeof Lenis !== 'undefined') {
@@ -2841,6 +2841,7 @@
         smoothTouch: false
       });
       lenis.stop(); // Stop scroll during brand animation
+      lenis.scrollTo(0, { immediate: true }); // Immediately reset Lenis scroll state
 
       if (typeof ScrollTrigger !== 'undefined') {
         lenis.on('scroll', ScrollTrigger.update);
@@ -2960,6 +2961,13 @@
       let mm = gsap.matchMedia();
 
       mm.add("(min-width: 769px)", () => {
+        // Set initial state to hide cards 2, 3, and 4 until they start animating
+        cards.forEach((card, idx) => {
+          if (idx > 0) {
+            gsap.set(card, { yPercent: 100, visibility: 'hidden' });
+          }
+        });
+
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: '#experience',
@@ -2979,7 +2987,7 @@
           }
 
           const startTime = idx;
-          tl.fromTo(card, { yPercent: 100 }, { yPercent: 0, ease: 'none' }, startTime);
+          tl.fromTo(card, { yPercent: 100, visibility: 'hidden' }, { yPercent: 0, visibility: 'visible', ease: 'none' }, startTime);
           tl.fromTo(card.querySelector('.card-image-bg'), { scale: 1.15 }, { scale: 1.0, ease: 'none' }, startTime);
 
           for (let j = 0; j < idx; j++) {
@@ -2988,7 +2996,6 @@
             tl.to(prevCard, {
               scale: 1 - distance * 0.03,
               yPercent: -distance * 3.5,
-              opacity: Math.max(0.4, 1 - distance * 0.15),
               ease: 'none'
             }, startTime);
           }
