@@ -565,10 +565,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background:
-        radial-gradient(circle at 76% 42%, rgba(201, 166, 87, 0.22) 0%, rgba(201, 166, 87, 0.08) 24%, rgba(10, 10, 10, 0) 48%),
-        linear-gradient(to right, rgba(10, 10, 10, 0.82) 0%, rgba(10, 10, 10, 0.55) 34%, rgba(10, 10, 10, 0.1) 70%, rgba(10, 10, 10, 0.62) 100%),
-        linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0) 35%);
+      background: linear-gradient(to right, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.5) 35%, rgba(10, 10, 10, 0.1) 70%, rgba(10, 10, 10, 0.6) 100%);
       z-index: 3;
     }
 
@@ -579,24 +576,23 @@
       position: relative;
       z-index: 4;
       display: grid;
-      grid-template-columns: minmax(320px, 0.72fr) minmax(420px, 1.28fr);
+      grid-template-columns: 0.7fr 1.3fr;
+      /* 35% left (text space), 65% right (building space) */
       align-items: center;
       padding-top: 80px;
-      min-height: 100vh;
     }
 
     .hero-text-block {
       grid-column: 1;
-      max-width: 560px;
+      /* Force the text block to sit in the left column */
+      max-width: 500px;
       text-align: left;
       padding: 1rem 0;
     }
 
     @media (max-width: 1024px) {
       .hero-overlay {
-        background:
-          radial-gradient(circle at 50% 48%, rgba(201, 166, 87, 0.18) 0%, rgba(10, 10, 10, 0) 45%),
-          linear-gradient(to bottom, rgba(10, 10, 10, 0.45) 0%, rgba(10, 10, 10, 0.78) 100%);
+        background: linear-gradient(to bottom, rgba(10, 10, 10, 0.5) 0%, rgba(10, 10, 10, 0.75) 100%);
       }
 
       .hero-content {
@@ -606,7 +602,6 @@
         align-items: center;
         text-align: center;
         padding-top: 80px;
-        min-height: 100vh;
       }
 
       .hero-text-block {
@@ -677,57 +672,12 @@
       transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.8s;
     }
 
-    .hero-partner-container {
-      position: absolute;
-      top: 50%;
-      right: clamp(0rem, 4vw, 4.5rem);
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: clamp(260px, 24vw, 430px);
-      aspect-ratio: 1;
-      pointer-events: none;
-      opacity: 0;
-      transform: translateY(calc(-50% + 24px)) scale(0.94);
-      transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1) 2.0s;
-    }
-
-    .hero-partner-container::before {
-      content: "";
-      position: absolute;
-      inset: 15%;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201, 166, 87, 0.26), rgba(201, 166, 87, 0.08) 42%, rgba(0, 0, 0, 0) 70%);
-      filter: blur(10px);
-      opacity: 0.8;
-    }
-
-    .hero-partner-container img {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      mix-blend-mode: screen;
-      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 18px rgba(255, 255, 255, 0.16)) brightness(1.18);
-      transition: transform 0.3s ease;
-    }
-
-    .hero-partner-container img:hover {
-      transform: scale(1.025);
-    }
-
     body.loaded .hero-label-script,
     body.loaded .hero-title,
     body.loaded .hero-subtitle,
     body.loaded .hero-buttons {
       opacity: 1;
       transform: translateY(0);
-    }
-
-    body.loaded .hero-partner-container {
-      opacity: 1;
-      transform: translateY(-50%) scale(1);
     }
 
     /* Scroll Down Indicator */
@@ -819,24 +769,6 @@
         width: 100%;
       }
 
-      .hero-partner-container {
-        position: relative !important;
-        top: auto !important;
-        right: auto !important;
-        justify-content: center !important;
-        width: min(58vw, 270px) !important;
-        margin-top: 1.25rem !important;
-        transform: translateY(18px) scale(0.96) !important;
-      }
-
-      .hero-partner-container img {
-        width: 100% !important;
-        height: 100% !important;
-      }
-
-      body.loaded .hero-partner-container {
-        transform: translateY(0) scale(1) !important;
-      }
     }
 
     @media (max-width: 480px) {
@@ -852,10 +784,6 @@
       }
       .hero-buttons {
         max-width: 100% !important;
-      }
-      .hero-partner-container {
-        width: min(68vw, 230px) !important;
-        margin-top: 0.75rem !important;
       }
     }
 
@@ -2944,11 +2872,6 @@
             Download Brochure
           </a>
         </div>
-      </div>
-
-      <!-- Partner Logo Badge (Clean Floating Branding) -->
-      <div class="hero-partner-container">
-        <img src="./public/logo/All%20LOGOS.png" alt="Infrastructure Partner Logo">
       </div>
     </div>
 
