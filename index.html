@@ -272,7 +272,7 @@
       width: 100%;
       height: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
     }
 
@@ -285,6 +285,7 @@
       width: 240px;
       height: 75px;
       pointer-events: none;
+      justify-content: center;
     }
 
     .brand-logo-animator img {
@@ -2293,6 +2294,42 @@
       margin-top: 0.75rem;
     }
 
+    .contact-numbers {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--text-light);
+    }
+
+    .contact-numbers a {
+      color: var(--gold);
+      font-weight: 600;
+      transition: var(--transition-fast);
+    }
+
+    .contact-numbers a:hover {
+      color: var(--text-light);
+      text-shadow: 0 0 10px var(--gold-glow);
+    }
+
+    .contact-numbers .divider {
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 576px) {
+      .contact-numbers {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .contact-numbers .divider {
+        display: none;
+      }
+    }
+
     .contact-form {
       display: flex;
       flex-direction: column;
@@ -2497,6 +2534,15 @@
 
     .footer-contact-item span {
       line-height: 1.5;
+    }
+
+    .footer-contact-item a {
+      color: inherit;
+      transition: var(--transition-fast);
+    }
+
+    .footer-contact-item a:hover {
+      color: var(--gold);
     }
 
     .footer-contact-icon {
@@ -2761,7 +2807,6 @@
         <li class="nav-item"><a href="#about">About</a></li>
         <li class="nav-item"><a href="#amenities">Amenities</a></li>
         <li class="nav-item"><a href="#residence">Residence</a></li>
-        <li class="nav-item"><a href="#gallery">Gallery</a></li>
         <li class="nav-item"><a href="#location">Location</a></li>
         <li class="nav-item"><a href="#contact">Contact</a></li>
       </ul>
@@ -2783,7 +2828,6 @@
       <li class="mobile-nav-item"><a href="#about" onclick="toggleMenu()">About</a></li>
       <li class="mobile-nav-item"><a href="#amenities" onclick="toggleMenu()">Amenities</a></li>
       <li class="mobile-nav-item"><a href="#residence" onclick="toggleMenu()">Residence</a></li>
-      <li class="mobile-nav-item"><a href="#gallery" onclick="toggleMenu()">Gallery</a></li>
       <li class="mobile-nav-item"><a href="#location" onclick="toggleMenu()">Location</a></li>
       <li class="mobile-nav-item"><a href="#contact" onclick="toggleMenu()">Contact</a></li>
     </ul>
@@ -3316,10 +3360,6 @@
             <span class="meta-label">Residences</span>
             <span class="meta-value">3 & 4 BHK</span>
           </div>
-          <div class="meta-item">
-            <span class="meta-label">Status</span>
-            <span class="meta-value">Under Const.</span>
-          </div>
         </div>
       </div>
     </div>
@@ -3507,7 +3547,10 @@
                     d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                 </svg>
               </div>
-              <span>+91 XXXXX XXXXX (Contact via Email)</span>
+              <span>
+                <a href="tel:+917080677714">+91 70806 77714</a>, <br>
+                <a href="tel:+917080677749">+91 70806 77749</a>
+              </span>
             </div>
           </div>
         </div>
@@ -3544,6 +3587,11 @@
        JAVASCRIPT INTERACTIONS
        -------------------------------------------------- -->
   <script>
+    // Disable browser automatic scroll restoration to prevent initial page jumps
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
     // Initialize Lenis Smooth Scroll with safety fallback
     let lenis;
     if (typeof Lenis !== 'undefined') {
@@ -3582,6 +3630,13 @@
 
     // 1. BRAND INTRO ANIMATION & INITIAL LOAD
     function initIntro() {
+      // Force page scroll reset to top immediately to ensure perfect coordinate measurement
+      window.scrollTo(0, 0);
+      if (typeof Lenis !== 'undefined' && lenis) {
+        lenis.stop();
+        lenis.scrollTo(0, { immediate: true });
+      }
+
       const logo = document.getElementById('intro-logo');
       const placeholder = document.querySelector('.navbar-placeholder');
 
@@ -3592,6 +3647,9 @@
         if (logo && placeholder) {
           placeholder.appendChild(logo);
           logo.classList.remove('intro-active');
+        }
+        if (typeof Lenis !== 'undefined' && lenis) {
+          lenis.start();
         }
         return;
       }
@@ -3604,7 +3662,6 @@
       // Allow 2.3 seconds for gold shimmer sweep, then move logo and reveal content
       setTimeout(() => {
         document.body.classList.add('loaded');
-        lenis.start(); // Start scroll after loaded
 
         // Wait for browser layout to stabilize (scrollbar changes) before measuring coordinates
         requestAnimationFrame(() => {
@@ -3642,16 +3699,27 @@
                   logo.classList.remove('intro-active');
                   gsap.set(logo, { clearProps: 'all' });
                   document.body.classList.remove('intro-animating');
+                  
+                  // Initialize ScrollTriggers ONLY after the logo is perfectly in its place
+                  initVideoScrollAnimation();
+                  initResidenceScrollAnimation();
+
+                  // Enable scroll ONLY after intro animation is completely finished and scroll triggers are initialized
+                  if (typeof Lenis !== 'undefined' && lenis) {
+                    lenis.start();
+                  }
                 }
               });
             } else {
               document.body.classList.remove('intro-animating');
+              initVideoScrollAnimation();
+              initResidenceScrollAnimation();
+              if (typeof Lenis !== 'undefined' && lenis) {
+                lenis.start();
+              }
             }
           });
         });
-
-        initVideoScrollAnimation();
-        initResidenceScrollAnimation();
       }, 2300);
     }
 
@@ -3913,8 +3981,12 @@
       } else {
         sections.forEach(section => {
           if (section.getAttribute('id') === 'experience') return;
-          const top = section.offsetTop;
-          const height = section.offsetHeight;
+          
+          // Check if section is pinned (wrapped in a GSAP pin-spacer) to get correct offsetTop & height
+          const parent = section.parentElement;
+          const top = (parent && parent.classList.contains('pin-spacer')) ? parent.offsetTop : section.offsetTop;
+          const height = (parent && parent.classList.contains('pin-spacer')) ? parent.offsetHeight : section.offsetHeight;
+          
           if (scrollPos >= top && scrollPos < top + height) {
             currentSectionId = section.getAttribute('id');
           }
