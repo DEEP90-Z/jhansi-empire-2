@@ -15,7 +15,7 @@
   <meta property="og:title" content="Jhansi Empire | Luxury Residences">
   <meta property="og:description"
     content="Experience royal-inspired luxury living at Jhansi Empire. Featuring premium 3 & 4 BHK residences, gated community, rooftop pool, and strategic location.">
-  <meta property="og:image" content="./public/hero layers/Snapshot_3.png">
+  <meta property="og:image" content="./public/hero layers/Snapshot_3.webp">
   <meta property="og:url" content="https://jhansiempire.in">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -57,6 +57,7 @@
       --gold-hover: #b08d4a;
       --gold-light: rgba(197, 160, 89, 0.12);
       --gold-glow: rgba(197, 160, 89, 0.3);
+      --gold-contrast: #9c7b3c;
 
       /* Layout & Spacing */
       --container-max-width: 1400px;
@@ -574,25 +575,21 @@
       position: relative;
       z-index: 4;
       display: grid;
-      grid-template-columns: 0.7fr 1.3fr; /* 35% left (text space), 65% right (building space) */
+      grid-template-columns: 0.7fr 1.3fr;
+      /* 35% left (text space), 65% right (building space) */
       align-items: center;
       padding-top: 80px;
     }
 
     .hero-text-block {
-      grid-column: 1; /* Force the text block to sit in the left column */
+      grid-column: 1;
+      /* Force the text block to sit in the left column */
       max-width: 500px;
       text-align: left;
       padding: 1rem 0;
     }
 
     @media (max-width: 1024px) {
-      .hero-content {
-        grid-template-columns: 0.9fr 1.1fr; /* Adjust split for medium screens */
-      }
-    }
-
-    @media (max-width: 768px) {
       .hero-overlay {
         background: linear-gradient(to bottom, rgba(10, 10, 10, 0.5) 0%, rgba(10, 10, 10, 0.75) 100%);
       }
@@ -603,7 +600,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding-top: 60px;
+        padding-top: 80px;
       }
 
       .hero-text-block {
@@ -773,174 +770,120 @@
     }
 
     /* --------------------------------------------------
-       SECTION: EXPERIENCE (STACKED SCROLL REVEAL)
+       SECTION: EXPERIENCE (CINEMATIC SCROLL REVEAL)
        -------------------------------------------------- */
     .experience-section {
       position: relative;
+      background-color: #060606;
+      width: 100%;
+      z-index: 5;
+    }
+
+    .video-scroll-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .video-scroll-sticky {
+      position: relative;
       height: 100vh;
       width: 100%;
-      background-color: #060606;
-      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 80px 0 10px 0;
-      z-index: 5;
-    }
-
-    .experience-container {
-      width: 100%;
-      height: 100%;
-      max-width: 1550px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      padding: 0 4rem;
-      justify-content: center;
-    }
-
-    .cards-wrapper {
-      position: relative;
-      width: 100%;
-      height: 88vh;
-      max-height: 900px;
-      margin: 0 auto;
-    }
-
-    .experience-card {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 32px;
       overflow: hidden;
-      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transform-origin: center top;
-      will-change: transform, opacity;
-      background-color: #0c0c0c;
     }
 
-    .card-image-bg {
+    /* Intro content */
+    .video-scroll-intro {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      will-change: transform;
+      z-index: 10;
+      text-align: center;
+      width: 90%;
+      max-width: 700px;
+      pointer-events: none;
+      color: #fff;
     }
 
-    .card-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.65) 100%);
-      z-index: 3;
+    .video-scroll-desc {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
     }
 
-    .card-content {
-      position: absolute;
-      bottom: 4rem;
-      left: 4.5rem;
+    /* Video Frame starts as card, expands to fullscreen */
+    .video-scroll-frame {
+      position: relative;
+      width: 70vw;
+      height: 70vh;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(197, 160, 89, 0.2);
+      transform-origin: center center;
       z-index: 4;
-      max-width: 600px;
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: width, height, border-radius;
+      background-color: #000;
     }
 
-    .card-label {
-      font-size: 0.8rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 600;
+    .video-scroll-player {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
       display: block;
-      margin-bottom: 0.65rem;
+      filter: blur(12px) brightness(0.4);
+      transform: scale(1.25);
+      will-change: filter, transform;
     }
 
-    .card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      line-height: 1.2;
-      color: #ffffff;
-      font-weight: 500;
+    /* Audio toggle float */
+    .video-sound-toggle {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(10, 10, 10, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 12;
+      transition: var(--transition-smooth);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: scale(0.8);
     }
 
-    @media (max-width: 768px) {
-      .card-content {
-        bottom: 2.5rem;
-        left: 2rem;
-        right: 2rem;
-      }
-      
-      .card-title {
-        font-size: 1.95rem;
-      }
+    .video-sound-toggle:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      transform: scale(1.1);
     }
 
-    /* Responsive styling for Stacked Section */
+    .video-sound-toggle svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
     @media (max-width: 1024px) {
-      .experience-container {
-        padding: 0 2.5rem;
+      .video-scroll-frame {
+        width: 85vw;
+        height: 55vh;
+        border-radius: 16px;
       }
 
-      .cards-wrapper {
-        height: 84vh;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .experience-section {
-        padding: 80px 0 10px 0;
-        height: auto;
-      }
-
-      .experience-container {
-        padding: 0 1.5rem;
-      }
-
-      .cards-wrapper {
-        height: auto;
-        border-radius: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-      }
-
-      .experience-card {
-        position: relative;
-        height: 60vh;
-        border-radius: 24px;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .experience-section {
-        padding: 70px 0 5px 0;
-        height: auto;
-      }
-
-      .experience-container {
-        padding: 0 1rem;
-      }
-
-      .cards-wrapper {
-        height: auto;
-      }
-
-      .experience-card {
-        height: 50vh;
-        border-radius: 20px;
+      .video-sound-toggle {
+        bottom: 20px;
+        right: 20px;
       }
     }
 
@@ -1178,8 +1121,17 @@
       }
 
       .collage-badge {
-        left: 10px;
-        bottom: 20px;
+        left: 5% !important;
+        right: 5% !important;
+        width: 90% !important;
+        bottom: 20px !important;
+        padding: 0.85rem 1.4rem !important;
+        text-align: center !important;
+      }
+      
+      .collage-badge span {
+        font-size: 1.5rem !important;
+        white-space: normal !important;
       }
 
       .about-story {
@@ -1189,6 +1141,13 @@
       .highlights-grid {
         grid-template-columns: 1fr;
       }
+    }
+
+    /* Gold Contrast Overrides for Light Background Sections (WCAG AA Compliant) */
+    .residence-section .section-label,
+    .residence-section .residence-tag,
+    .location-section .section-label {
+      color: var(--gold-contrast);
     }
 
     /* --------------------------------------------------
@@ -1290,6 +1249,462 @@
     @media (max-width: 600px) {
       .amenities-grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    /* --------------------------------------------------
+       SECTION 4.5: DISCOVER YOUR RESIDENCE STYLING
+       -------------------------------------------------- */
+    .residence-section {
+      background: radial-gradient(circle at 50% 50%, #ffffff 0%, var(--bg-light) 100%);
+      padding: var(--section-padding);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+    }
+
+    @media (min-width: 1025px) {
+      .residence-section {
+        height: 100vh;
+        padding: 90px 0 0 0 !important;
+        /* Push down to clear the fixed navbar */
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+      }
+
+      .residence-section .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+      }
+
+      .residence-header {
+        margin-bottom: 0.50rem !important;
+      }
+
+      .residence-header .section-label {
+        margin-bottom: 0.25rem !important;
+      }
+
+      .residence-header .section-title {
+        font-size: 2.10rem !important;
+      }
+
+      .residence-header .section-divider {
+        margin: 1.0rem auto !important;
+      }
+
+      .residence-grid {
+        grid-template-columns: 1.30fr 0.70fr;
+        /* Adjusted for larger image space */
+        gap: 3.5rem;
+        align-items: center;
+      }
+
+      .residence-left {
+        align-items: flex-start !important;
+        /* Align content to left edge */
+        width: 100%;
+      }
+
+      .floorplan-wrapper {
+        justify-content: flex-start !important;
+        /* Align content to left edge */
+      }
+
+      .floorplan-container {
+        width: auto !important;
+        height: 55vh !important;
+        /* Scale floorplan container height relative to screen height for larger image */
+        aspect-ratio: 1468 / 1071;
+        max-width: 780px !important;
+        /* Max width ceiling */
+      }
+
+      .residence-tag {
+        margin-bottom: 0.5rem !important;
+      }
+
+      .residence-title {
+        font-size: 2.10rem !important;
+      }
+
+      .residence-subtitle {
+        font-size: 1.15rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+
+      .residence-divider {
+        margin-bottom: 1.0rem !important;
+      }
+
+      .specs-list {
+        gap: 0.6rem !important;
+        margin-bottom: 1.25rem !important;
+      }
+
+      .spec-row {
+        padding-bottom: 0.6rem !important;
+      }
+
+      .residence-features-wrap {
+        margin-bottom: 1.25rem !important;
+      }
+
+      .features-header {
+        margin-bottom: 0.60rem !important;
+      }
+
+      .residence-features-list {
+        gap: 0.60rem 1.5rem !important;
+      }
+
+      .btn-residence-cta {
+        padding: 0.90rem 2.2rem !important;
+        font-size: 0.78rem !important;
+      }
+    }
+
+    .residence-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    @media (min-width: 1025px) {
+      .residence-container.residence-3bhk,
+      .residence-container.residence-3bhk-b {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .residence-container {
+        margin-bottom: 5.5rem;
+      }
+
+      .residence-container:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .residence-ambient-glow {
+      position: absolute;
+      top: 50%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(197, 160, 89, 0.04) 0%, rgba(197, 160, 89, 0) 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .residence-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .residence-left {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+    }
+
+    /* 3D Floor Plan Wrapper & Spotlight */
+    .floorplan-wrapper {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1200px;
+    }
+
+    .floorplan-spotlight {
+      position: absolute;
+      width: 110%;
+      height: 110%;
+      background: radial-gradient(circle, rgba(197, 160, 89, 0.05) 0%, rgba(197, 160, 89, 0) 65%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .floorplan-container {
+      position: relative;
+      width: 100%;
+      max-width: 680px;
+      aspect-ratio: 1468 / 1071;
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: 2;
+      will-change: transform;
+      animation: residenceFloat 7s ease-in-out infinite;
+    }
+
+    .floorplan-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 1;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.12));
+      pointer-events: auto;
+      will-change: transform, opacity;
+    }
+
+    .floorplan-shadow {
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      transform: translate3d(-50%, 0, -10px);
+      width: 85%;
+      height: 25px;
+      background: radial-gradient(ellipse, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 80%);
+      pointer-events: none;
+      z-index: 1;
+      filter: blur(6px);
+    }
+
+    @keyframes residenceFloat {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotateX(0deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotateX(0.5deg);
+      }
+    }
+
+    /* Right Side Content & Specs */
+    .residence-right {
+      z-index: 2;
+    }
+
+    .residence-info-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .residence-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .residence-tag {
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .residence-title {
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+      color: var(--text-dark);
+    }
+
+    .residence-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--text-muted-dark);
+      margin-bottom: 2rem;
+    }
+
+    .residence-divider {
+      margin-bottom: 2.5rem;
+    }
+
+    .specs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+      margin-bottom: 3rem;
+    }
+
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 1.1rem;
+      border-bottom: 1px solid rgba(197, 160, 89, 0.18);
+    }
+
+    .spec-name {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted-dark);
+      font-weight: 600;
+    }
+
+    .spec-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.12rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      text-align: right;
+      max-width: 60%;
+    }
+
+    .residence-features-wrap {
+      margin-bottom: 3.5rem;
+    }
+
+    .features-header {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-dark);
+      font-weight: 700;
+      margin-bottom: 1.35rem;
+    }
+
+    .residence-features-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.1rem 2rem;
+    }
+
+    .residence-features-list li {
+      font-size: 0.88rem;
+      color: var(--text-muted-dark);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .feature-bullet {
+      width: 5px;
+      height: 5px;
+      background-color: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .btn-residence-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.15rem 2.6rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 4px;
+      background-color: var(--gold);
+      color: #0A0A0A;
+      border: 1px solid var(--gold);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-residence-cta:hover {
+      background-color: var(--text-dark);
+      border-color: var(--text-dark);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Responsive Adapters */
+    @media (max-width: 1100px) {
+      .residence-grid {
+        gap: 4rem;
+      }
+
+      .residence-title {
+        font-size: 2.6rem;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .residence-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+
+      .residence-left {
+        order: 1;
+        /* Keep floor plan first on tablet/mobile */
+      }
+
+      .residence-right {
+        order: 2;
+      }
+
+      .residence-title {
+        font-size: 2.8rem;
+        text-align: center;
+      }
+
+      .residence-subtitle {
+        text-align: center;
+      }
+
+      .residence-tag {
+        text-align: center;
+      }
+
+      .residence-divider.section-divider {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .floorplan-container {
+        max-width: 600px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .residence-section {
+        padding: var(--section-padding-mobile);
+      }
+
+      .residence-title {
+        font-size: 2.2rem;
+      }
+
+      .residence-subtitle {
+        font-size: 1.35rem;
+      }
+
+      .residence-features-list {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+      }
+
+      .spec-value {
+        font-size: 0.95rem;
+      }
+
+      .btn-residence-cta {
+        width: 100%;
+        padding: 1.1rem;
       }
     }
 
@@ -1608,8 +2023,8 @@
     .video-progress-container::before {
       content: '';
       position: absolute;
-      top: -10px;
-      bottom: -10px;
+      top: -20px;
+      bottom: -20px;
       left: 0;
       right: 0;
       z-index: 5;
@@ -1693,6 +2108,10 @@
       .video-play-btn-center svg {
         width: 22px;
         height: 22px;
+      }
+
+      .video-cinema-btn {
+        display: none !important;
       }
     }
 
@@ -1839,7 +2258,7 @@
       padding: var(--section-padding);
       background-color: var(--bg-dark);
       background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.95)),
-        url('./public/hero layers/Snapshot_18.png');
+        url('./public/hero layers/Snapshot_18.webp');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -2192,6 +2611,130 @@
       color: var(--gold);
       transform: scale(1.05);
     }
+
+    /* --------------------------------------------------
+       COMPREHENSIVE MOBILE RESPONSIVENESS OVERRIDES
+       -------------------------------------------------- */
+    @media (max-width: 768px) {
+      .about-section,
+      .amenities-section,
+      .residence-section,
+      .gallery-section,
+      .location-section,
+      .contact-section {
+        padding: var(--section-padding-mobile) !important;
+      }
+    }
+
+    .mobile-nav-overlay {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 4rem 0;
+    }
+
+    .mobile-nav-menu {
+      margin: auto;
+      gap: 1.8rem;
+    }
+
+    @media (max-height: 700px) {
+      .mobile-nav-menu {
+        gap: 1.25rem;
+      }
+      .mobile-nav-item a {
+        font-size: 1.75rem;
+      }
+    }
+
+    /* Responsive Navbar Heights */
+    @media (max-width: 1024px) {
+      .navbar {
+        height: 80px;
+      }
+      .navbar.scrolled {
+        height: 70px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        height: 70px;
+      }
+      .navbar.scrolled {
+        height: 60px;
+      }
+      html {
+        scroll-padding-top: 70px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-label-script {
+        font-size: 2.2rem !important;
+      }
+      .hero-title {
+        font-size: 2.75rem !important;
+      }
+      .collage-badge {
+        left: 5% !important;
+        right: 5% !important;
+        width: 90% !important;
+        bottom: 15px !important;
+        padding: 0.75rem 1rem !important;
+        text-align: center !important;
+      }
+      .collage-badge span {
+        font-size: 1.35rem !important;
+        white-space: normal !important;
+      }
+      .about-image-frame {
+        height: 340px !important;
+      }
+      .amenity-card {
+        padding: 2.2rem 1.5rem !important;
+      }
+      .amenities-header {
+        margin-bottom: 3.5rem !important;
+      }
+      .spec-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.25rem !important;
+        padding-bottom: 0.85rem !important;
+      }
+      .spec-value {
+        max-width: 100% !important;
+        text-align: left !important;
+      }
+      .location-card {
+        gap: 1rem !important;
+        padding: 1rem !important;
+      }
+      .contact-card {
+        padding: 2.5rem 1.25rem !important;
+      }
+      .contact-form {
+        gap: 1.8rem !important;
+      }
+      .video-metadata-card {
+        padding: 1rem !important;
+        margin-top: 1.5rem !important;
+      }
+      .meta-value {
+        font-size: 0.8rem !important;
+      }
+      .meta-label {
+        font-size: 0.6rem !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-bottom {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1.25rem !important;
+      }
+    }
   </style>
 </head>
 
@@ -2217,6 +2760,7 @@
         <li class="nav-item"><a href="#experience">Experience</a></li>
         <li class="nav-item"><a href="#about">About</a></li>
         <li class="nav-item"><a href="#amenities">Amenities</a></li>
+        <li class="nav-item"><a href="#residence">Residence</a></li>
         <li class="nav-item"><a href="#gallery">Gallery</a></li>
         <li class="nav-item"><a href="#location">Location</a></li>
         <li class="nav-item"><a href="#contact">Contact</a></li>
@@ -2238,6 +2782,7 @@
       <li class="mobile-nav-item"><a href="#experience" onclick="toggleMenu()">Experience</a></li>
       <li class="mobile-nav-item"><a href="#about" onclick="toggleMenu()">About</a></li>
       <li class="mobile-nav-item"><a href="#amenities" onclick="toggleMenu()">Amenities</a></li>
+      <li class="mobile-nav-item"><a href="#residence" onclick="toggleMenu()">Residence</a></li>
       <li class="mobile-nav-item"><a href="#gallery" onclick="toggleMenu()">Gallery</a></li>
       <li class="mobile-nav-item"><a href="#location" onclick="toggleMenu()">Location</a></li>
       <li class="mobile-nav-item"><a href="#contact" onclick="toggleMenu()">Contact</a></li>
@@ -2253,7 +2798,7 @@
 
     <div class="hero-content">
       <div class="hero-text-block">
-        <span class="hero-label-script">Experience a comfortable</span>
+        <span class="hero-label-script">Experience an exquisite</span>
         <h1 class="hero-title">Royal <span class="text-gold italic">Lifestyle</span></h1>
         <p class="hero-subtitle">Luxury residences crafted with elegance, comfort and modern living in the heart of
           Jhansi.</p>
@@ -2272,51 +2817,26 @@
     </div>
   </section>
 
-  <!-- SECTION: EXPERIENCE (STACKED SCROLL REVEAL) -->
+  <!-- SECTION: EXPERIENCE (CINEMATIC SCROLL REVEAL) -->
   <section id="experience" class="experience-section">
-    <div class="experience-container">
-      <div class="cards-wrapper">
-        <!-- Card 1: Luxury Living -->
-        <div class="experience-card" id="card-1">
-          <div class="card-image-bg"
-            style="background-image: url('./public/3%20layers/Jhansi%20Empire%203%20layer.webp')"></div>
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <span class="card-label">The Residences</span>
-            <h3 class="card-title">Luxury 3 & 4 BHK Living</h3>
-          </div>
+    <div class="video-scroll-container">
+      <div class="video-scroll-sticky">
+        <!-- Video Wrapper that scales up -->
+        <div class="video-scroll-frame">
+          <video class="video-scroll-player" id="experience-video" loop muted playsinline preload="auto">
+            <source src="./public/long video/Welcome to Jhansi Empire – Experience A Royal Lifestyle_optimized.mp4"
+              type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
 
-        <!-- Card 2: Rooftop Swimming Pool -->
-        <div class="experience-card" id="card-2">
-          <div class="card-image-bg"
-            style="background-image: url('./public/3%20layers/Jhansi%20Empire%203%20layer%20pool%20copy.webp')"></div>
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <span class="card-label">Wellness</span>
-            <h3 class="card-title">Rooftop Infinity Pool</h3>
-          </div>
-        </div>
-
-        <!-- Card 3: Premium Amenities -->
-        <div class="experience-card" id="card-3">
-          <div class="card-image-bg" style="background-image: url('./public/3%20layers/3%20Layers%20(14).webp')"></div>
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <span class="card-label">Community</span>
-            <h3 class="card-title">Elite Empire Clubhouse</h3>
-          </div>
-        </div>
-
-        <!-- Card 4: Prime Location -->
-        <div class="experience-card" id="card-4">
-          <div class="card-image-bg" style="background-image: url('./public/3%20layers/Night.webp')"></div>
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <span class="card-label">Architecture</span>
-            <h3 class="card-title">Stunning Gated Enclave</h3>
-          </div>
-        </div>
+        <!-- Audio toggle floating button -->
+        <button class="video-sound-toggle" id="experience-sound-toggle" aria-label="Toggle Sound">
+          <svg viewBox="0 0 24 24" class="sound-icon-svg">
+            <path
+              d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM19 12c0 2.94-1.66 5.5-4 6.83v2.1c3.48-1.5 6-4.97 6-8.93s-2.52-7.43-6-8.93v2.1c2.34 1.33 4 3.89 4 6.83zM3 9v6h4l5 5V4L7 9H3z" />
+          </svg>
+        </button>
       </div>
     </div>
   </section>
@@ -2506,6 +3026,201 @@
     </div>
   </section>
 
+  <!-- SECTION 4.5: DISCOVER YOUR RESIDENCE -->
+  <section id="residence" class="residence-section">
+    <div class="residence-ambient-glow"></div>
+    <div class="container">
+
+      <!-- Centered Premium Section Header -->
+      <div class="residence-header reveal" style="text-align: center; margin-bottom: 2rem;">
+        <span class="section-label">Discover Your Residence</span>
+        <h2 class="section-title">Premium Floor Plans</h2>
+        <div class="section-divider centered"></div>
+      </div>
+
+      <div class="residence-wrapper">
+
+        <!-- Residence 1: 4 BHK -->
+        <div class="residence-container residence-4bhk">
+          <div class="residence-grid">
+            <!-- Left Side: Floor Plan Visual Showcase -->
+            <div class="residence-left reveal">
+              <div class="floorplan-wrapper">
+                <div class="floorplan-spotlight"></div>
+                <div class="floorplan-container" id="floorplan-4bhk-3d">
+                  <img src="./public/3d/floorplan_transparent_trimmed.webp" alt="Jhansi Empire Premium 4 BHK Luxury Apartment Floor Plan layout"
+                    class="floorplan-img" id="floorplan-real-4bhk" loading="lazy">
+                  <div class="floorplan-shadow"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Property Specifications -->
+            <div class="residence-right">
+              <div class="residence-info">
+                <span class="section-label residence-tag animate-item">Luxury Residence</span>
+                <h2 class="section-title residence-title animate-item">4 BHK Luxury Apartment</h2>
+                <div class="residence-subtitle animate-item">With Servant Room</div>
+                <div class="section-divider residence-divider animate-item"></div>
+
+                <!-- Specifications Table/Rows -->
+                <div class="specs-list">
+                  <div class="spec-row animate-item">
+                    <span class="spec-name">Built-up Area</span>
+                    <span class="spec-value">2100 sq.ft.</span>
+                  </div>
+                  <div class="spec-row animate-item">
+                    <span class="spec-name">Super Built-up Area</span>
+                    <span class="spec-value">2850 sq.ft.</span>
+                  </div>
+                  <div class="spec-row animate-item">
+                    <span class="spec-name">Configuration</span>
+                    <span class="spec-value">4 Bedrooms + Living Room + Kitchen + Servant Room</span>
+                  </div>
+                  <div class="spec-row animate-item">
+                    <span class="spec-name">Balconies</span>
+                    <span class="spec-value">5 Private Balconies</span>
+                  </div>
+                </div>
+
+                <!-- Premium Features Grid -->
+                <div class="residence-features-wrap animate-item">
+                  <h4 class="features-header">Exclusive Features</h4>
+                  <ul class="residence-features-list">
+                    <li><span class="feature-bullet"></span>Vastu-based</li>
+                    <li><span class="feature-bullet"></span>Well-lit</li>
+                    <li><span class="feature-bullet"></span>Airy Layout</li>
+                    <li><span class="feature-bullet"></span>Servant Room with Attached Toilet</li>
+                  </ul>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Residence 2: 3 BHK -->
+        <div class="residence-container residence-3bhk">
+          <div class="residence-grid">
+            <!-- Left Side: Floor Plan Visual Showcase -->
+            <div class="residence-left reveal">
+              <div class="floorplan-wrapper">
+                <div class="floorplan-spotlight"></div>
+                <div class="floorplan-container" id="floorplan-3bhk-3d">
+                  <img src="./public/3d/ChatGPT Image May 29, 2026, 02_23_39 PM_trimmed.webp"
+                    alt="Jhansi Empire Premium 3 BHK Type A Luxury Apartment Floor Plan layout" class="floorplan-img" id="floorplan-real-3bhk" loading="lazy">
+                  <div class="floorplan-shadow"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Property Specifications -->
+            <div class="residence-right">
+              <div class="residence-info">
+                <span class="section-label residence-tag animate-item">Luxury Residence</span>
+                <h2 class="section-title residence-title animate-item">3 BHK Type A</h2>
+                <div class="residence-subtitle animate-item">3 BHK Type-A Luxury Apartment (with Servant Room)</div>
+                <div class="section-divider residence-divider animate-item"></div>
+
+                <!-- Specifications Table/Rows -->
+                <div class="specs-list">
+                  <div class="spec-row animate-item">
+                    <span class="spec-name">Built-up Area</span>
+                    <span class="spec-value">1500 sq.ft.</span>
+                  </div>
+                  <div class="spec-row animate-item">
+                    <span class="spec-name">Super Built-up Area</span>
+                    <span class="spec-value">2050 sq.ft.</span>
+                  </div>
+                  <div class="spec-row animate-item">
+                    <span class="spec-name">Configuration</span>
+                    <span class="spec-value">3 Bedrooms + Living Room + Kitchen + Servant Room with Toilet</span>
+                  </div>
+                  <div class="spec-row animate-item">
+                    <span class="spec-name">Balconies</span>
+                    <span class="spec-value">2 Balconies</span>
+                  </div>
+                </div>
+
+                <!-- Premium Features Grid -->
+                <div class="residence-features-wrap animate-item">
+                  <h4 class="features-header">Exclusive Features</h4>
+                  <ul class="residence-features-list">
+                    <li><span class="feature-bullet"></span>Vastu-based</li>
+                    <li><span class="feature-bullet"></span>Spacious apartment</li>
+                    <li><span class="feature-bullet"></span>Separate servant room and toilet</li>
+                  </ul>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Residence 3: 3 BHK Type B -->
+        <div class="residence-container residence-3bhk-b">
+          <div class="residence-grid">
+            <!-- Left Side: Floor Plan Visual Showcase -->
+            <div class="residence-left reveal">
+              <div class="floorplan-wrapper">
+                <div class="floorplan-spotlight"></div>
+                <div class="floorplan-container" id="floorplan-3bhk-b-3d">
+                  <img src="./public/3d/ChatGPT Image May 30, 2026, 02_05_22 PM_trimmed.webp"
+                    alt="Jhansi Empire Premium 3 BHK Type B Luxury Apartment Floor Plan layout" class="floorplan-img" id="floorplan-real-3bhk-b" loading="lazy">
+                  <div class="floorplan-shadow"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Property Specifications -->
+            <div class="residence-right">
+              <div class="residence-info">
+                <span class="section-label residence-tag animate-item">Luxury Residence</span>
+                <h2 class="section-title residence-title animate-item">3 BHK Type B</h2>
+                <div class="residence-subtitle animate-item">3 BHK Type-B Luxury Apartment (No Servant Room)</div>
+                <div class="section-divider residence-divider animate-item"></div>
+
+                <!-- Specifications Table/Rows -->
+                <div class="specs-list">
+                  <div class="spec-row animate-item">
+                    <span class="spec-name">Built-up Area</span>
+                    <span class="spec-value">1400 sq.ft.</span>
+                  </div>
+                  <div class="spec-row animate-item">
+                    <span class="spec-name">Super Built-up Area</span>
+                    <span class="spec-value">1925 sq.ft.</span>
+                  </div>
+                  <div class="spec-row animate-item">
+                    <span class="spec-name">Configuration</span>
+                    <span class="spec-value">3 Bedrooms + Living Room + Kitchen</span>
+                  </div>
+                  <div class="spec-row animate-item">
+                    <span class="spec-name">Balconies</span>
+                    <span class="spec-value">2 Balconies</span>
+                  </div>
+                </div>
+
+                <!-- Premium Features Grid -->
+                <div class="residence-features-wrap animate-item">
+                  <h4 class="features-header">Exclusive Features</h4>
+                  <ul class="residence-features-list">
+                    <li><span class="feature-bullet"></span>Vastu-based</li>
+                    <li><span class="feature-bullet"></span>Well-lit</li>
+                    <li><span class="feature-bullet"></span>Airy apartment</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
   <!-- SECTION 5: CINEMATIC SHOWCASE -->
   <section id="gallery" class="gallery-section">
     <div class="cinema-overlay" id="cinema-overlay"></div>
@@ -2524,7 +3239,7 @@
         <!-- Video Showcase Player Container -->
         <div class="video-showcase-container reveal" id="video-container">
           <video class="video-player" id="video-player" loop muted playsinline
-            poster="./public/hero layers/Snapshot_3.png" preload="metadata">
+            poster="./public/hero layers/Snapshot_3.webp" preload="metadata">
             <source src="./public/long%20video/Jhansi%20Empire%2020%20Sec.webm" type="video/webm">
             Your browser does not support the video tag.
           </video>
@@ -2751,6 +3466,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#residence">Residence</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#location">Location</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -2934,7 +3650,8 @@
           });
         });
 
-        initStackedCards();
+        initVideoScrollAnimation();
+        initResidenceScrollAnimation();
       }, 2300);
     }
 
@@ -2945,65 +3662,137 @@
       initIntro();
     }
 
-    // GSAP STACKED SCROLL REVEAL
-    function initStackedCards() {
+    // GSAP VIDEO SCROLL ANIMATION
+    function initVideoScrollAnimation() {
       gsap.registerPlugin(ScrollTrigger);
 
-      const cards = gsap.utils.toArray('.experience-card');
-      if (cards.length === 0) return;
+      const section = document.getElementById('experience');
+      if (!section) return;
 
-      ScrollTrigger.config({ ignoreMobileResize: true });
+      const container = section.querySelector('.video-scroll-container');
+      const frame = section.querySelector('.video-scroll-frame');
+      const video = document.getElementById('experience-video');
+      const soundToggle = document.getElementById('experience-sound-toggle');
 
+      if (!frame || !video) return;
+
+      // Unmute/Mute handling
+      soundToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        video.muted = !video.muted;
+        if (!video.muted) {
+          video.volume = 1.0;
+        }
+        const MUTED_SVG = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM19 12c0 2.94-1.66 5.5-4 6.83v2.1c3.48-1.5 6-4.97 6-8.93s-2.52-7.43-6-8.93v2.1c2.34 1.33 4 3.89 4 6.83zM3 9v6h4l5 5V4L7 9H3z" />';
+        const UNMUTED_SVG = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>';
+        soundToggle.querySelector('svg').innerHTML = video.muted ? MUTED_SVG : UNMUTED_SVG;
+      });
+
+      // MatchMedia for mobile/desktop layout differences
       let mm = gsap.matchMedia();
 
-      mm.add("(min-width: 769px)", () => {
+      mm.add("(min-width: 1025px)", () => {
+        // Timeline for desktop
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: '#experience',
+            trigger: section,
             start: 'top top',
-            end: `+=${cards.length * 100}%`,
+            end: '+=250%',
             pin: true,
             scrub: 1,
             anticipatePin: 1,
-            invalidateOnRefresh: true
+            invalidateOnRefresh: true,
+            onEnter: () => {
+              video.play().catch(e => console.log("Play blocked: ", e));
+              gsap.to(soundToggle, { autoAlpha: 1, scale: 1, duration: 0.3 });
+            },
+            onEnterBack: () => {
+              video.play().catch(e => console.log("Play blocked: ", e));
+              gsap.to(soundToggle, { autoAlpha: 1, scale: 1, duration: 0.3 });
+            },
+            onLeave: () => {
+              video.pause();
+              gsap.to(soundToggle, { autoAlpha: 0, scale: 0.8, duration: 0.3 });
+            },
+            onLeaveBack: () => {
+              video.pause();
+              gsap.to(soundToggle, { autoAlpha: 0, scale: 0.8, duration: 0.3 });
+            }
           }
         });
 
-        cards.forEach((card, idx) => {
-          if (idx === 0) {
-            tl.to(card.querySelector('.card-image-bg'), { scale: 1.08, ease: 'none' }, 0);
-            return;
-          }
+        // 1. Zoom video frame to full screen & slide navbar up
+        tl.to('.navbar', { yPercent: -120, duration: 1, ease: 'power2.inOut' }, 0);
+        tl.to(frame, {
+          width: '100vw',
+          height: '100vh',
+          borderRadius: 0,
+          borderWidth: 0,
+          duration: 2,
+          ease: 'power2.inOut'
+        }, 0);
+        // Clean focus zoom transition on video element
+        tl.to(video, {
+          filter: 'blur(0px) brightness(1)',
+          scale: 1,
+          duration: 2,
+          ease: 'power2.inOut'
+        }, 0);
 
-          const startTime = idx;
-          tl.fromTo(card, { yPercent: 100 }, { yPercent: 0, ease: 'none' }, startTime);
-          tl.fromTo(card.querySelector('.card-image-bg'), { scale: 1.15 }, { scale: 1.0, ease: 'none' }, startTime);
+        // 2. Hold the fullscreen video
+        tl.to({}, { duration: 1.5 });
 
-          for (let j = 0; j < idx; j++) {
-            const prevCard = cards[j];
-            const distance = idx - j;
-            tl.to(prevCard, {
-              scale: 1 - distance * 0.03,
-              yPercent: -distance * 3.5,
-              opacity: Math.max(0.4, 1 - distance * 0.15),
-              ease: 'none'
-            }, startTime);
-          }
-        });
+        // 3. Bring navbar back before unpinning
+        tl.to('.navbar', { yPercent: 0, duration: 1, ease: 'power2.inOut' }, '+=0.5');
       });
 
-      mm.add("(max-width: 768px)", () => {
-        cards.forEach((card, idx) => {
-          gsap.from(card, {
-            scrollTrigger: {
-              trigger: card,
-              start: "top 85%",
-            },
-            y: 50,
-            opacity: 0,
-            duration: 0.8
-          });
+      mm.add("(max-width: 1024px)", () => {
+        // Mobile layout: Instead of a full pin, we reveal on scroll, auto-play
+        gsap.to(soundToggle, { autoAlpha: 1, scale: 1 });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            onEnter: () => video.play().catch(e => console.log("Play blocked: ", e)),
+            onEnterBack: () => video.play().catch(e => console.log("Play blocked: ", e)),
+            onLeave: () => video.pause(),
+            onLeaveBack: () => video.pause()
+          }
         });
+
+        // Simply scale-reveal the video frame on enter
+        gsap.fromTo(frame,
+          { scale: 0.9, opacity: 0.8 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: frame,
+              start: 'top 85%',
+              end: 'top 50%',
+              scrub: true
+            }
+          }
+        );
+
+        // Mobile focus zoom transition on video element
+        gsap.fromTo(video,
+          { filter: 'blur(10px) brightness(0.5)', scale: 1.2 },
+          {
+            filter: 'blur(0px) brightness(1)',
+            scale: 1,
+            scrollTrigger: {
+              trigger: frame,
+              start: 'top 85%',
+              end: 'top 50%',
+              scrub: true
+            }
+          }
+        );
       });
 
       ScrollTrigger.refresh();
@@ -3258,6 +4047,8 @@
         videoContainer.classList.remove('show-controls');
       }
     });
+    videoContainer.addEventListener('click', showControls);
+    videoContainer.addEventListener('touchstart', showControls, { passive: true });
 
     video.addEventListener('play', () => {
       videoContainer.classList.remove('paused');
@@ -3342,6 +4133,158 @@
         }, 5500);
       }
     });
+
+    // 9. DISCOVER YOUR RESIDENCE INTERACTIONS & ANIMATIONS
+    const floorplanWrappers = document.querySelectorAll('.floorplan-wrapper');
+    floorplanWrappers.forEach(wrapper => {
+      const container = wrapper.querySelector('.floorplan-container');
+      if (!container) return;
+
+      wrapper.addEventListener('mousemove', (e) => {
+        const rect = wrapper.getBoundingClientRect();
+
+        // Calculate coordinate offsets (scaled between -0.5 and 0.5)
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        // Tilt coefficient configuration (maximum degrees tilt)
+        const maxTiltX = 12; // tilt on X axis
+        const maxTiltY = 12; // tilt on Y axis
+
+        const tiltX = -y * maxTiltX;
+        const tiltY = x * maxTiltY;
+
+        // Update styling matrix
+        container.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.04, 1.04, 1.04)`;
+      });
+
+      wrapper.addEventListener('mouseleave', () => {
+        // Return smoothly to horizontal state and clear inline styles to allow CSS float animation
+        container.style.transition = 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
+        container.style.transform = '';
+      });
+    });
+
+    // ScrollTrigger transition logic for Discover Your Residence
+    function initResidenceScrollAnimation() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+      let mm = gsap.matchMedia();
+
+      // DESKTOP: Premium scroll-driven transform pinning
+      mm.add("(min-width: 1025px)", () => {
+        // Reset element states before creating pinning timeline
+        gsap.set('.residence-4bhk', { autoAlpha: 1, y: 0 });
+        gsap.set('#floorplan-4bhk-3d', { scale: 1, yPercent: 0 });
+        gsap.set('.residence-3bhk', { autoAlpha: 0, y: 0 });
+        gsap.set('#floorplan-3bhk-3d', { scale: 0.9, yPercent: 12 });
+        gsap.set('.residence-3bhk-b', { autoAlpha: 0, y: 0 });
+        gsap.set('#floorplan-3bhk-b-3d', { scale: 0.9, yPercent: 12 });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#residence',
+            id: 'residence-trigger',
+            start: 'top top',
+            end: '+=450%', // Significantly increased scroll depth to slow down transition speed
+            pin: true,
+            scrub: 1,
+            anticipatePin: 1,
+            invalidateOnRefresh: true
+          }
+        });
+
+        // STAGE 1: 4 BHK -> 3 BHK Type A
+        // 4 BHK holds stable from 0.0 to 1.5, then starts fading out
+        tl.to('.residence-4bhk', { autoAlpha: 0, duration: 0.8, ease: 'power2.inOut' }, 1.5);
+        tl.to('#floorplan-4bhk-3d', { scale: 0.82, yPercent: -12, duration: 1.0, ease: 'power2.inOut' }, 1.5);
+
+        // 3 BHK Type A fades in (finishes at 2.6)
+        tl.fromTo('.residence-3bhk',
+          { autoAlpha: 0 },
+          { autoAlpha: 1, duration: 0.8, ease: 'power2.inOut' },
+          1.8
+        );
+        tl.fromTo('#floorplan-3bhk-3d',
+          { scale: 0.9, yPercent: 12 },
+          { scale: 1.0, yPercent: 0, duration: 1.0, ease: 'power2.inOut' },
+          1.8
+        );
+
+        // 3 BHK Type A specs reveal (finishes before hold phase)
+        tl.fromTo('.residence-3bhk .residence-tag', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 }, 2.0);
+        tl.fromTo('.residence-3bhk .residence-title', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 }, 2.1);
+        tl.fromTo('.residence-3bhk .residence-subtitle', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 }, 2.2);
+        tl.fromTo('.residence-3bhk .residence-divider', { scaleX: 0 }, { scaleX: 1, transformOrigin: 'left', duration: 0.4 }, 2.3);
+
+        const specRowsA = document.querySelectorAll('.residence-3bhk .spec-row');
+        specRowsA.forEach((row, index) => {
+          tl.fromTo(row, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, 2.4 + index * 0.12);
+        });
+
+        tl.fromTo('.residence-3bhk .residence-features-wrap', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 }, 2.9);
+
+        // STAGE 2: 3 BHK Type A -> 3 BHK Type B
+        // 3 BHK Type A holds stable from 2.9 to 4.5, then starts fading out
+        tl.to('.residence-3bhk', { autoAlpha: 0, duration: 0.8, ease: 'power2.inOut' }, 4.5);
+        tl.to('#floorplan-3bhk-3d', { scale: 0.82, yPercent: -12, duration: 1.0, ease: 'power2.inOut' }, 4.5);
+
+        // 3 BHK Type B fades in (finishes at 5.6)
+        tl.fromTo('.residence-3bhk-b',
+          { autoAlpha: 0 },
+          { autoAlpha: 1, duration: 0.8, ease: 'power2.inOut' },
+          4.8
+        );
+        tl.fromTo('#floorplan-3bhk-b-3d',
+          { scale: 0.9, yPercent: 12 },
+          { scale: 1.0, yPercent: 0, duration: 1.0, ease: 'power2.inOut' },
+          4.8
+        );
+
+        // 3 BHK Type B specs reveal
+        tl.fromTo('.residence-3bhk-b .residence-tag', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 }, 5.0);
+        tl.fromTo('.residence-3bhk-b .residence-title', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 }, 5.1);
+        tl.fromTo('.residence-3bhk-b .residence-subtitle', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 }, 5.2);
+        tl.fromTo('.residence-3bhk-b .residence-divider', { scaleX: 0 }, { scaleX: 1, transformOrigin: 'left', duration: 0.4 }, 5.3);
+
+        const specRowsB = document.querySelectorAll('.residence-3bhk-b .spec-row');
+        specRowsB.forEach((row, index) => {
+          tl.fromTo(row, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, 5.4 + index * 0.12);
+        });
+
+        tl.fromTo('.residence-3bhk-b .residence-features-wrap', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 }, 5.9);
+        
+        // 3 BHK Type B holds stable from 5.9 to 7.5 (end of scroll)
+        tl.to({}, { duration: 1.6 }); // Extends the hold space at the end of the timeline
+      });
+
+      // MOBILE/TABLET: No pinning, sequential scrolling cards
+      mm.add("(max-width: 1024px)", () => {
+        // Reset all states for standard document flow
+        gsap.set('.residence-4bhk', { autoAlpha: 1, y: 0, clearProps: 'all' });
+        gsap.set('#floorplan-4bhk-3d', { scale: 1, yPercent: 0, clearProps: 'all' });
+        gsap.set('.residence-3bhk', { autoAlpha: 1, y: 0, clearProps: 'all' });
+        gsap.set('#floorplan-3bhk-3d', { scale: 1, yPercent: 0, clearProps: 'all' });
+        gsap.set('.residence-3bhk-b', { autoAlpha: 1, y: 0, clearProps: 'all' });
+        gsap.set('#floorplan-3bhk-b-3d', { scale: 1, yPercent: 0, clearProps: 'all' });
+
+        // ScrollTrigger trigger reveal on mobile
+        gsap.fromTo('#residence .reveal',
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: '#residence',
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        );
+      });
+    }
   </script>
 </body>
 

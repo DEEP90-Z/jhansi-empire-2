@@ -1,0 +1,27 @@
+# Node dependencies
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Backup and temp files
+index.html.original
+*.log
+.DS_Store
+Thumbs.db
+
+# Temp helper scripts
+find_intro_logo.js
+view_css_blocks.js
+view_experience_js.js
+list_assets.js
+find_image_lines.js
+find_residence_btn.js
+compress_images.js
+compress_videos.js
+list_sections.js
+find_styles.js
+find_mobilenav.js
+view_sections_outline.js
+view_media_queries.js
